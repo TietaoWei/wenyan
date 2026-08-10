@@ -69,6 +69,12 @@
     .stat { text-align: center; }
     .stat-number { font-size: 26px; font-weight: 700; color: var(--cinnabar); }
     .stat-label { font-size: 12px; color: var(--ink-light); letter-spacing: 0.08em; margin-top: 2px; }
+    .summary-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+    .summary-stat-card { background: rgba(255,255,255,0.35); border: 1px solid rgba(0,0,0,0.08); border-radius: 2px; padding: 24px 12px; text-align: center; }
+    .summary-stat-icon { font-size: 22px; margin-bottom: 6px; }
+    .summary-stat-number { font-size: 30px; font-weight: 700; color: var(--cinnabar); margin-bottom: 4px; }
+    .summary-stat-label { font-size: 12px; color: var(--ink-light); letter-spacing: 0.08em; }
+    .encourage-msg { text-align: center; font-size: 16px; color: var(--ink-light); line-height: 1.9; margin-bottom: 28px; padding: 18px; background: rgba(196,92,72,0.05); border-left: 3px solid var(--cinnabar); border-radius: 0 4px 4px 0; }
     .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
     .card { background: rgba(255,255,255,0.35); border: 1px solid rgba(0,0,0,0.08); border-radius: 2px; padding: 36px; margin-bottom: 24px; position: relative; min-height: 240px; display: flex; flex-direction: column; justify-content: center; }
@@ -144,6 +150,7 @@
       .card { padding: 28px 20px; }
       .features { grid-template-columns: 1fr; }
       .stats { gap: 24px; }
+      .summary-stats { grid-template-columns: 1fr; }
       .options { grid-template-columns: 1fr; }
       .sentence { font-size: 17px; }
       .sentence b { font-size: 22px; }
@@ -165,6 +172,7 @@
         <button class="tab-btn" data-tab="memorize">背诵</button>
         <button class="tab-btn" data-tab="meaningChoice">选义</button>
         <button class="tab-btn" data-tab="review">温故知新</button>
+        <button class="tab-btn" data-tab="summary">小结</button>
       </nav>
 
       <div class="loading" id="loadingArea">载入词库中……</div>
@@ -285,6 +293,34 @@
             <button class="btn-secondary" onclick="switchTab('home')">返回主页</button>
             <button class="btn-primary" onclick="mcForceReview()">复习低分实词</button>
           </div>
+        </div>
+      </div>
+
+      <!-- 小结 -->
+      <div class="tab-panel" id="panelSummary">
+        <p class="progress-text" id="summaryDate">2026-08-10 学习概况</p>
+        <div class="summary-stats">
+          <div class="summary-stat-card">
+            <div class="summary-stat-icon">📖</div>
+            <div class="summary-stat-number" id="summaryLearned">0</div>
+            <div class="summary-stat-label">已学词数</div>
+          </div>
+          <div class="summary-stat-card">
+            <div class="summary-stat-icon">📝</div>
+            <div class="summary-stat-number" id="summaryToday">0</div>
+            <div class="summary-stat-label">今日学/复习</div>
+          </div>
+          <div class="summary-stat-card">
+            <div class="summary-stat-icon">🕰️</div>
+            <div class="summary-stat-number" id="summaryDue">0</div>
+            <div class="summary-stat-label">待复习</div>
+          </div>
+        </div>
+        <p class="encourage-msg" id="summaryEncourage">今日尚未开始学习，翻开卷轴，从一词一句开始吧。</p>
+        <div class="actions">
+          <button class="btn-primary" onclick="switchTab('memorize')">开始诵记</button>
+          <button class="btn-secondary" onclick="switchTab('meaningChoice')">进入选义</button>
+          <button class="btn-secondary" onclick="switchTab('review')">温故知新</button>
         </div>
       </div>
 
@@ -454,13 +490,14 @@
       var panelId = tabName === 'review' ? 'panelMeaningChoice' : ('panel' + tabName.charAt(0).toUpperCase() + tabName.slice(1));
       document.getElementById(panelId).classList.add('active');
 
-      var sealMap = { home: '记', memorize: '诵', meaningChoice: '义', review: '温' };
+      var sealMap = { home: '记', memorize: '诵', meaningChoice: '义', review: '温', summary: '结' };
       document.getElementById('sealChar').textContent = sealMap[tabName] || '记';
 
       if (tabName === 'memorize') memRender();
       if (tabName === 'meaningChoice') { mcMode = 'full'; mcStarted = false; mcLoadSavedOrStart('full'); }
       if (tabName === 'review') { mcMode = 'review'; mcStarted = false; mcLoadSavedOrStart('review'); }
       if (tabName === 'home') initHome();
+      if (tabName === 'summary') initSummary();
     }
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
       btn.addEventListener('click', function() { switchTab(this.dataset.tab); });
@@ -471,6 +508,44 @@
       document.getElementById('totalWords').textContent = words.length;
       document.getElementById('learnedWords').textContent = getCompletedWordCount();
       document.getElementById('reviewDue').textContent = getReviewDueCount();
+    }
+
+    // ==================== 小结 ====================
+    function recordDailyActivity(word, type) {
+      var d = todayStr();
+      var act = JSON.parse(localStorage.getItem('wenyan_daily_activity') || '{}');
+      if (act.date !== d) act = { date: d, learn: [], review: [] };
+      var list = type === 'learn' ? act.learn : act.review;
+      if (list.indexOf(word) === -1) list.push(word);
+      localStorage.setItem('wenyan_daily_activity', JSON.stringify(act));
+    }
+
+    function getTodayActivity() {
+      var d = todayStr();
+      var act = JSON.parse(localStorage.getItem('wenyan_daily_activity') || '{}');
+      if (act.date !== d) return { learn: [], review: [] };
+      return { learn: act.learn || [], review: act.review || [] };
+    }
+
+    function initSummary() {
+      var d = todayStr();
+      document.getElementById('summaryDate').textContent = d + ' 学习概况';
+      document.getElementById('summaryLearned').textContent = getCompletedWordCount();
+      var act = getTodayActivity();
+      var todayCount = act.learn.length + act.review.length;
+      document.getElementById('summaryToday').textContent = todayCount;
+      document.getElementById('summaryDue').textContent = getReviewDueCount();
+
+      var el = document.getElementById('summaryEncourage');
+      if (todayCount === 0) {
+        el.textContent = '今日尚未开始学习，翻开卷轴，从一词一句开始吧。';
+      } else if (act.learn.length > 0 && act.review.length === 0) {
+        el.textContent = '今日已学 ' + act.learn.length + ' 词，学而时习之，去自测或选义中巩固一番吧。';
+      } else if (act.review.length > 0) {
+        el.textContent = '今日已学 ' + act.learn.length + ' 词、复习 ' + act.review.length + ' 词，温故知新，持之以恒。';
+      } else {
+        el.textContent = '今日已在文言世界中巩固了 ' + act.review.length + ' 词，继续加油。';
+      }
     }
 
     // ==================== 背诵 ====================
@@ -649,10 +724,12 @@
         markWordCompleted(group.word, mcGroupCorrect, group.questions.length);
         localStorage.setItem('wenyan_mc_group', mcGroupIdx + 1);
         localStorage.setItem('wenyan_last_date', todayStr());
+        recordDailyActivity(group.word, 'learn');
       } else {
         document.getElementById('mcCompActions').classList.add('hidden');
         document.getElementById('mcCompActionsReview').classList.remove('hidden');
         localStorage.setItem('wenyan_mc_review_group', mcGroupIdx + 1);
+        recordDailyActivity(group.word, 'review');
       }
     }
 
