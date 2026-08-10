@@ -303,17 +303,17 @@
           <div class="summary-stat-card">
             <div class="summary-stat-icon">📖</div>
             <div class="summary-stat-number" id="summaryLearned">0</div>
-            <div class="summary-stat-label">已学词数</div>
+            <div class="summary-stat-label">今日已学</div>
           </div>
           <div class="summary-stat-card">
-            <div class="summary-stat-icon">📝</div>
-            <div class="summary-stat-number" id="summaryToday">0</div>
-            <div class="summary-stat-label">今日学/复习</div>
+            <div class="summary-stat-icon">�</div>
+            <div class="summary-stat-number" id="summaryReviewed">0</div>
+            <div class="summary-stat-label">今日已复习</div>
           </div>
           <div class="summary-stat-card">
             <div class="summary-stat-icon">🕰️</div>
-            <div class="summary-stat-number" id="summaryDue">0</div>
-            <div class="summary-stat-label">待复习</div>
+            <div class="summary-stat-number" id="summaryTime">0秒</div>
+            <div class="summary-stat-label">今日学习时长</div>
           </div>
         </div>
         <p class="encourage-msg" id="summaryEncourage">今日尚未开始学习，翻开卷轴，从一词一句开始吧。</p>
@@ -514,7 +514,7 @@
     function recordDailyActivity(word, type) {
       var d = todayStr();
       var act = JSON.parse(localStorage.getItem('wenyan_daily_activity') || '{}');
-      if (act.date !== d) act = { date: d, learn: [], review: [] };
+      if (act.date !== d) act = { date: d, learn: [], review: [], seconds: 0 };
       var list = type === 'learn' ? act.learn : act.review;
       if (list.indexOf(word) === -1) list.push(word);
       localStorage.setItem('wenyan_daily_activity', JSON.stringify(act));
@@ -523,30 +523,55 @@
     function getTodayActivity() {
       var d = todayStr();
       var act = JSON.parse(localStorage.getItem('wenyan_daily_activity') || '{}');
-      if (act.date !== d) return { learn: [], review: [] };
-      return { learn: act.learn || [], review: act.review || [] };
+      if (act.date !== d) return { learn: [], review: [], seconds: 0 };
+      return { learn: act.learn || [], review: act.review || [], seconds: act.seconds || 0 };
+    }
+
+    function formatSeconds(total) {
+      total = Math.floor(total);
+      var h = Math.floor(total / 3600);
+      var m = Math.floor((total % 3600) / 60);
+      var s = total % 60;
+      if (h > 0) return h + '时' + m + '分';
+      if (m > 0) return m + '分' + s + '秒';
+      return s + '秒';
+    }
+
+    var studyTimerId = null;
+    function startStudyTimer() {
+      if (studyTimerId) return;
+      studyTimerId = setInterval(function() {
+        var d = todayStr();
+        var act = JSON.parse(localStorage.getItem('wenyan_daily_activity') || '{}');
+        if (act.date !== d) act = { date: d, learn: [], review: [], seconds: 0 };
+        act.seconds = (act.seconds || 0) + 30;
+        localStorage.setItem('wenyan_daily_activity', JSON.stringify(act));
+      }, 30000);
     }
 
     function initSummary() {
       var d = todayStr();
       document.getElementById('summaryDate').textContent = d + ' 学习概况';
-      document.getElementById('summaryLearned').textContent = getCompletedWordCount();
       var act = getTodayActivity();
-      var todayCount = act.learn.length + act.review.length;
-      document.getElementById('summaryToday').textContent = todayCount;
-      document.getElementById('summaryDue').textContent = getReviewDueCount();
+      document.getElementById('summaryLearned').textContent = act.learn.length;
+      document.getElementById('summaryReviewed').textContent = act.review.length;
+      document.getElementById('summaryTime').textContent = formatSeconds(act.seconds);
 
+      var total = act.learn.length + act.review.length;
       var el = document.getElementById('summaryEncourage');
-      if (todayCount === 0) {
+      if (total === 0) {
         el.textContent = '今日尚未开始学习，翻开卷轴，从一词一句开始吧。';
       } else if (act.learn.length > 0 && act.review.length === 0) {
-        el.textContent = '今日已学 ' + act.learn.length + ' 词，学而时习之，去自测或选义中巩固一番吧。';
-      } else if (act.review.length > 0) {
-        el.textContent = '今日已学 ' + act.learn.length + ' 词、复习 ' + act.review.length + ' 词，温故知新，持之以恒。';
+        el.textContent = '今日已学 ' + act.learn.length + ' 词，学而时习之。';
+      } else if (act.review.length > 0 && act.learn.length === 0) {
+        el.textContent = '今日复习 ' + act.review.length + ' 词，温故知新，持之以恒。';
       } else {
-        el.textContent = '今日已在文言世界中巩固了 ' + act.review.length + ' 词，继续加油。';
+        el.textContent = '今日已学 ' + act.learn.length + ' 词、复习 ' + act.review.length + ' 词，功不唐捐。';
       }
     }
+
+    // 页面加载后启动计时器
+    startStudyTimer();
 
     // ==================== 背诵 ====================
     var memIdx = 0;
