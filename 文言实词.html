@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文言实词 · 积跬步以至千里</title>
+  <style>
+    :root {
+      --paper: #F5F0E6;
+      --paper-dark: #E8E0D1;
+      --ink: #2C2C2C;
+      --ink-light: #5A5247;
+      --cinnabar: #C45C48;
+      --cinnabar-dark: #A34534;
+      --seal: #8B3A3A;
+      --bamboo: #6B8E6B;
+      --gold: #B8860B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "STSong", serif;
+      color: var(--ink);
+      background-color: #E6DFD0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(0,0,0,0.03) 0%, transparent 12%),
+        radial-gradient(circle at 80% 70%, rgba(0,0,0,0.02) 0%, transparent 15%),
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+    }
+
+    .scroll {
+      width: 100%;
+      max-width: 760px;
+      background: var(--paper);
+      border-radius: 4px;
+      box-shadow:
+        0 1px 1px rgba(0,0,0,0.08),
+        0 8px 24px rgba(0,0,0,0.12),
+        inset 0 0 60px rgba(139, 116, 85, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll::before,
+    .scroll::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 14px;
+      background: linear-gradient(90deg, #C4B49A 0%, #D9CDB8 40%, #D9CDB8 60%, #B8A68C 100%);
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+    .scroll::before { left: 0; border-radius: 4px 0 0 4px; }
+    .scroll::after { right: 0; border-radius: 0 4px 4px 0; }
+
+    .content {
+      padding: 48px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── 页头 ── */
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--ink-light);
+      letter-spacing: 0.15em;
+    }
+
+    .seal {
+      display: inline-block;
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
+      margin-left: 10px;
+      border: 2px solid var(--cinnabar);
+      color: var(--cinnabar);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 4px;
+      transform: rotate(-6deg);
+      opacity: 0.9;
+    }
+
+    /* ── Tab 导航 ── */
+    .tabs {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .tab-btn {
+      font-family: inherit;
+      font-size: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: transparent;
+      color: var(--ink-light);
+      cursor: pointer;
+      letter-spacing: 0.1em;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+      position: relative;
+      bottom: -1px;
+    }
+
+    .tab-btn:hover { color: var(--cinnabar); }
+    .tab-btn.active {
+      color: var(--cinnabar);
+      border-bottom-color: var(--cinnabar);
+      font-weight: 600;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── 主页 ── */
+    .intro {
+      text-align: center;
+      font-size: 15px;
+      line-height: 2;
+      color: var(--ink-light);
+      margin-bottom: 28px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 2px;
+      padding: 20px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+
+    .feature-icon { font-size: 26px; margin-bottom: 8px; }
+    .feature-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; letter-spacing: 0.08em; }
+    .feature-desc { font-size: 12px; color: var(--ink-light); line-height: 1.5; }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-bottom: 32px;
+      padding: 16px 0;
+      border-top: 1px dashed rgba(0,0,0,0.12);
+      border-bottom: 1px dashed rgba(0,0,0,0.12);
+    }
+
+    .stat { text-align: center; }
+    .stat-number { font-size: 26px; font-weight: 700; color: var(--cinnabar); }
+    .stat-label { font-size: 12px; color: var(--ink-light); letter-spacing: 0.08em; margin-top: 2px; }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── 通用卡片 ── */
+    .card {
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 2px;
+      padding: 36px;
+      margin-bottom: 24px;
+      position: relative;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 28px;
+      height: 28px;
+      border-top: 2px solid var(--cinnabar);
+      border-right: 2px solid var(--cinnabar);
+      opacity: 0.4;
+    }
+
+    /* ── 背诵 ── */
+    .word-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .big-word {
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      line-height: 1.1;
+    }
+
+    .pinyin-label {
+      font-size: 16px;
+      color: var(--ink-light);
+      font-family: "Times New Roman", serif;
+      letter-spacing: 0.08em;
+    }
+
+    .sense { margin-bottom: 16px; }
+    .sense:last-child { margin-bottom: 0; }
+
+    .meaning {
+      font-size: 18px;
+      line-height: 1.8;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .example {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--ink-light);
+      padding: 12px 16px;
+      background: rgba(196, 92, 72, 0.05);
+      border-left: 3px solid var(--cinnabar);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .example b { color: var(--cinnabar); font-weight: 700; }
+
+    .source-label {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      color: var(--ink-light);
+      margin-top: 6px;
+    }
+
+    /* ── 自测 ── */
+    .test-card {
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 2px;
+      padding: 36px;
+      margin-bottom: 24px;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .test-card::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 28px;
+      height: 28px;
+      border-top: 2px solid var(--cinnabar);
+      border-right: 2px solid var(--cinnabar);
+      opacity: 0.4;
+    }
+
+    .question-label {
+      font-size: 13px;
+      color: var(--ink-light);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .test-word {
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .test-pinyin {
+      font-size: 16px;
+      color: var(--ink-light);
+      font-family: "Times New Roman", serif;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+
+    /* ── 选义 ── */
+    .sentence {
+      font-size: 20px;
+      line-height: 2;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .sentence b { color: var(--cinnabar); font-size: 26px; padding: 0 4px; }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .option {
+      font-family: inherit;
+      font-size: 16px;
+      padding: 16px 14px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 2px;
+      background: rgba(255,255,255,0.4);
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .option:hover:not(:disabled) {
+      background: rgba(196, 92, 72, 0.08);
+      border-color: var(--cinnabar);
+    }
+
+    .option.correct {
+      background: rgba(107, 142, 107, 0.18);
+      border-color: var(--bamboo);
+      color: #3a5a3a;
+    }
+
+    .option.wrong {
+      background: rgba(196, 92, 72, 0.15);
+      border-color: var(--cinnabar);
+      color: var(--cinnabar-dark);
+    }
+
+    .option:disabled { cursor: default; }
+
+    .feedback {
+      text-align: center;
+      font-size: 16px;
+      min-height: 28px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .feedback.correct { color: var(--bamboo); }
+    .feedback.wrong { color: var(--cinnabar); }
+
+    /* ── 按钮 ── */
+    .controls {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button, a.button {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-align: center;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--cinnabar);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(196, 92, 72, 0.25);
+    }
+    .btn-primary:hover { background: var(--cinnabar-dark); transform: translateY(-1px); }
+    .btn-primary:disabled { background: #d9a99f; cursor: default; transform: none; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink-light);
+      border: 1px solid rgba(0,0,0,0.2);
+    }
+    .btn-secondary:hover { background: rgba(0,0,0,0.04); }
+
+    .btn-success {
+      background: var(--bamboo);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(107, 142, 107, 0.25);
+    }
+    .btn-success:hover { background: #567a56; transform: translateY(-1px); }
+
+    /* ── 进度条 ── */
+    .progress-text {
+      text-align: center;
+      font-size: 13px;
+      color: var(--ink-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(0,0,0,0.06);
+      border-radius: 3px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--cinnabar);
+      transition: width 0.3s ease;
+    }
+
+    /* ── 总结 ── */
+    .summary {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .summary h2 { font-size: 22px; margin-bottom: 16px; letter-spacing: 0.1em; }
+
+    .summary p {
+      font-size: 15px;
+      color: var(--ink-light);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .summary-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--cinnabar);
+    }
+
+    /* ── 加载状态 & footer ── */
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 16px;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 12px;
+      color: var(--ink-light);
+      letter-spacing: 0.08em;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 640px) {
+      .content { padding: 36px 22px; }
+      h1 { font-size: 22px; }
+      .big-word { font-size: 42px; }
+      .test-word { font-size: 48px; }
+      .card, .test-card { padding: 28px 20px; }
+      .features { grid-template-columns: 1fr; }
+      .stats { gap: 24px; }
+      .options { grid-template-columns: 1fr; }
+      .sentence { font-size: 17px; }
+      .sentence b { font-size: 22px; }
+      .tab-btn { padding: 10px 14px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="scroll">
+    <div class="content">
+      <header>
+        <h1>文言实词<span class="seal" id="sealChar">记</span></h1>
+        <p class="subtitle">积跬步以至千里 · 聚一词以通古文</p>
+      </header>
+
+      <!-- ── Tab 导航 ── -->
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="home">主页</button>
+        <button class="tab-btn" data-tab="memorize">背诵</button>
+        <button class="tab-btn" data-tab="selfTest">自测</button>
+        <button class="tab-btn" data-tab="meaningChoice">选义</button>
+      </nav>
+
+      <!-- ── 加载中 ── -->
+      <div class="loading" id="loadingArea">载入词库中……</div>
+
+      <!-- ==================== 主页 ==================== -->
+      <div class="tab-panel" id="panelHome">
+        <p class="intro">
+          精选课内常见文言实词，一词一卡，附释义与出处。<br>
+          日诵数词，循序渐进，于卷轴纸墨间温习古文根基。
+        </p>
+
+        <div class="features">
+          <div class="feature" onclick="switchTab('memorize')">
+            <div class="feature-icon">📜</div>
+            <div class="feature-title">一词一卡</div>
+            <div class="feature-desc">字形、读音、释义、例句，条理分明</div>
+          </div>
+          <div class="feature" onclick="switchTab('selfTest')">
+            <div class="feature-icon">🎯</div>
+            <div class="feature-title">自测模式</div>
+            <div class="feature-desc">遮蔽释义，检验记忆，即时反馈</div>
+          </div>
+          <div class="feature" onclick="switchTab('meaningChoice')">
+            <div class="feature-icon">🧩</div>
+            <div class="feature-title">语境辨义</div>
+            <div class="feature-desc">据例句推断词义，四选一巩固理解</div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number" id="totalWords">0</div>
+            <div class="stat-label">实词总数</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number" id="learnedWords">0</div>
+            <div class="stat-label">已诵词数</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number" id="streakDays">0</div>
+            <div class="stat-label">连续天数</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary" onclick="switchTab('memorize')">开始诵记</button>
+          <button class="btn-secondary" onclick="switchTab('selfTest')">进入自测</button>
+        </div>
+      </div>
+
+      <!-- ==================== 背诵 ==================== -->
+      <div class="tab-panel" id="panelMemorize">
+        <section class="card" id="memorizeCard">
+          <div class="word-row">
+            <span class="big-word" id="memWord">--</span>
+            <span class="pinyin-label" id="memPinyin">--</span>
+          </div>
+          <div id="memSenses"></div>
+        </section>
+
+        <div class="controls">
+          <button class="btn-secondary" id="memToggleBtn" onclick="memToggleReveal()">遮蔽释义</button>
+          <button class="btn-primary" onclick="memNext()">下一词</button>
+        </div>
+
+        <p class="progress-text" id="memProgress">第 1 / 0 词</p>
+      </div>
+
+      <!-- ==================== 自测 ==================== -->
+      <div class="tab-panel" id="panelSelfTest">
+        <div id="selfTestQuiz">
+          <p class="progress-text" id="stProgressText">第 1 / 0 题</p>
+          <div class="progress-bar">
+            <div class="progress-fill" id="stProgressFill" style="width:0%;"></div>
+          </div>
+
+          <section class="test-card">
+            <div class="question-label">请回忆下列实词含义</div>
+            <div class="test-word" id="stWord">--</div>
+            <div class="test-pinyin" id="stPinyin">--</div>
+            <div id="stAnswerArea" class="hidden">
+              <div id="stSenses"></div>
+            </div>
+          </section>
+
+          <div class="controls" id="stRevealControls">
+            <button class="btn-secondary" onclick="stSkip()">跳过</button>
+            <button class="btn-primary" onclick="stShowAnswer()">显示答案</button>
+          </div>
+
+          <div class="controls hidden" id="stRatingControls">
+            <button class="btn-secondary" onclick="stRate(false)">再复习</button>
+            <button class="btn-success" onclick="stRate(true)">已掌握</button>
+          </div>
+        </div>
+
+        <div class="summary hidden" id="stSummary">
+          <h2>自测完成</h2>
+          <p>本次共测 <span class="summary-number" id="stTotal">0</span> 词<br>
+          掌握 <span class="summary-number" id="stMastered">0</span> 词，待复习 <span class="summary-number" id="stReview">0</span> 词</p>
+          <div class="controls">
+            <button class="btn-secondary" onclick="switchTab('home')">返回主页</button>
+            <button class="btn-primary" onclick="stRestart()">再来一次</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== 选义 ==================== -->
+      <div class="tab-panel" id="panelMeaningChoice">
+        <div id="mcQuiz">
+          <p class="progress-text" id="mcProgressText">第 1 / 0 题</p>
+          <div class="progress-bar">
+            <div class="progress-fill" id="mcProgressFill" style="width:0%;"></div>
+          </div>
+
+          <section class="card">
+            <div class="question-label" style="margin-bottom:14px;">下列例句中，高亮字词的含义是？</div>
+            <p class="sentence" id="mcSentence">--</p>
+            <p class="source-label" id="mcSource" style="text-align:right;margin-bottom:12px;">--</p>
+          </section>
+
+          <div class="options" id="mcOptions"></div>
+
+          <p class="feedback" id="mcFeedback"></p>
+
+          <div class="controls">
+            <button class="btn-secondary" id="mcSkipBtn" onclick="mcSkip()">跳过</button>
+            <button class="btn-primary" id="mcNextBtn" onclick="mcNext()" disabled>下一题</button>
+          </div>
+        </div>
+
+        <div class="summary hidden" id="mcSummary">
+          <h2>答题完成</h2>
+          <p>本次共答 <span class="summary-number" id="mcTotal">0</span> 题<br>
+          答对 <span class="summary-number" id="mcCorrect">0</span> 题，答错 <span class="summary-number" id="mcWrong">0</span> 题</p>
+          <div class="controls">
+            <button class="btn-secondary" onclick="switchTab('home')">返回主页</button>
+            <button class="btn-primary" onclick="mcRestart()">再来一次</button>
+          </div>
+        </div>
+      </div>
+
+      <footer>日诵一词，温故知新</footer>
+    </div>
+  </main>
+
+  <script>
+    // ==================== 全局数据 ====================
+    let words = [];
+
+    async function loadWords() {
+      try {
+        const resp = await fetch('words.json');
+        words = await resp.json();
+      } catch(e) {
+        words = [];
+      }
+      document.getElementById('loadingArea').classList.add('hidden');
+      initAll();
+    }
+
+    // ==================== Tab 切换 ====================
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      document.querySelector('[data-tab="' + tabName + '"]').classList.add('active');
+      document.getElementById('panel' + tabName.charAt(0).toUpperCase() + tabName.slice(1)).classList.add('active');
+
+      var sealMap = { home: '记', memorize: '诵', selfTest: '测', meaningChoice: '义' };
+      document.getElementById('sealChar').textContent = sealMap[tabName] || '记';
+
+      if (tabName === 'memorize') memRender();
+      if (tabName === 'selfTest' && !stStarted) stRestart();
+      if (tabName === 'meaningChoice' && !mcStarted) mcRestart();
+    }
+
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() { switchTab(this.dataset.tab); });
+    });
+
+    // ==================== 主页 ====================
+    function initHome() {
+      document.getElementById('totalWords').textContent = words.length;
+      var learned = JSON.parse(localStorage.getItem('wenyan_learned') || '[]');
+      document.getElementById('learnedWords').textContent = learned.length;
+      var lastLearned = localStorage.getItem('wenyan_last_date');
+      var today = new Date().toISOString().slice(0, 10);
+      document.getElementById('streakDays').textContent = (lastLearned === today) ? '1' : '0';
+    }
+
+    // ==================== 背诵 ====================
+    var memIdx = 0;
+    var memRevealed = true;
+
+    function memRender() {
+      if (words.length === 0) return;
+      var w = words[memIdx];
+      document.getElementById('memWord').textContent = w.word;
+      document.getElementById('memPinyin').textContent = w.pinyin;
+      document.getElementById('memProgress').textContent =
+        '第 ' + (memIdx + 1) + ' / ' + words.length + ' 词';
+
+      document.getElementById('memSenses').innerHTML = w.senses.map(function(s) {
+        return '<div class="sense">' +
+          '<p class="meaning">' + (memRevealed ? s.meaning : '？') + '</p>' +
+          '<div class="example">' + s.example +
+            '<span class="source-label">——' + s.source + '</span></div>' +
+        '</div>';
+      }).join('');
+
+      document.getElementById('memToggleBtn').textContent = memRevealed ? '遮蔽释义' : '显示释义';
+    }
+
+    function memNext() {
+      memIdx = (memIdx + 1) % words.length;
+      memRevealed = true;
+      memRender();
+      saveMemorizeProgress();
+    }
+
+    function memToggleReveal() {
+      memRevealed = !memRevealed;
+      memRender();
+    }
+
+    function saveMemorizeProgress() {
+      var learned = JSON.parse(localStorage.getItem('wenyan_learned') || '[]');
+      var w = words[memIdx];
+      if (!learned.includes(w.word)) learned.push(w.word);
+      localStorage.setItem('wenyan_learned', JSON.stringify(learned));
+      localStorage.setItem('wenyan_last_date', new Date().toISOString().slice(0, 10));
+    }
+
+    // ==================== 自测 ====================
+    var stQueue = [];
+    var stIdx = 0;
+    var stMastered = 0;
+    var stReview = 0;
+    var stAnswered = false;
+    var stStarted = false;
+
+    function stShuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    function stBuildSensesHtml(senses) {
+      return senses.map(function(s) {
+        return '<div class="sense">' +
+          '<p class="meaning">' + s.meaning + '</p>' +
+          '<div class="example">' + s.example +
+            '<span class="source-label">——' + s.source + '</span></div>' +
+        '</div>';
+      }).join('');
+    }
+
+    function stRender() {
+      var w = stQueue[stIdx];
+      document.getElementById('stWord').textContent = w.word;
+      document.getElementById('stPinyin').textContent = w.pinyin;
+      document.getElementById('stSenses').innerHTML = stBuildSensesHtml(w.senses);
+      document.getElementById('stAnswerArea').classList.add('hidden');
+      document.getElementById('stRevealControls').classList.remove('hidden');
+      document.getElementById('stRatingControls').classList.add('hidden');
+      document.getElementById('stProgressText').textContent =
+        '第 ' + (stIdx + 1) + ' / ' + stQueue.length + ' 题';
+      document.getElementById('stProgressFill').style.width =
+        ((stIdx + 1) / stQueue.length * 100) + '%';
+      stAnswered = false;
+    }
+
+    function stShowAnswer() {
+      document.getElementById('stAnswerArea').classList.remove('hidden');
+      document.getElementById('stRevealControls').classList.add('hidden');
+      document.getElementById('stRatingControls').classList.remove('hidden');
+      stAnswered = true;
+    }
+
+    function stRate(isMastered) {
+      if (isMastered) stMastered++; else stReview++;
+      stIdx++;
+      stSaveProgress();
+      if (stIdx >= stQueue.length) stShowSummary();
+      else stRender();
+    }
+
+    function stSkip() {
+      stReview++;
+      stIdx++;
+      stSaveProgress();
+      if (stIdx >= stQueue.length) stShowSummary();
+      else stRender();
+    }
+
+    function stSaveProgress() {
+      var learned = JSON.parse(localStorage.getItem('wenyan_learned') || '[]');
+      var today = new Date().toISOString().slice(0, 10);
+      stQueue.slice(0, stIdx).forEach(function(w) {
+        if (!learned.includes(w.word)) learned.push(w.word);
+      });
+      localStorage.setItem('wenyan_learned', JSON.stringify(learned));
+      localStorage.setItem('wenyan_last_date', today);
+    }
+
+    function stShowSummary() {
+      document.getElementById('selfTestQuiz').classList.add('hidden');
+      document.getElementById('stSummary').classList.remove('hidden');
+      document.getElementById('stTotal').textContent = stQueue.length;
+      document.getElementById('stMastered').textContent = stMastered;
+      document.getElementById('stReview').textContent = stReview;
+    }
+
+    function stRestart() {
+      stQueue = stShuffle(words);
+      stIdx = 0;
+      stMastered = 0;
+      stReview = 0;
+      stStarted = true;
+      document.getElementById('selfTestQuiz').classList.remove('hidden');
+      document.getElementById('stSummary').classList.add('hidden');
+      stRender();
+    }
+
+    // ==================== 选义 ====================
+    var mcQuestions = [];
+    var mcIdx = 0;
+    var mcCorrect = 0;
+    var mcWrong = 0;
+    var mcAnswered = false;
+    var mcStarted = false;
+
+    function mcAllMeanings() {
+      var list = [];
+      words.forEach(function(w) {
+        w.senses.forEach(function(s) { list.push(s.meaning); });
+      });
+      return list;
+    }
+
+    function mcGenerateQuestions() {
+      var allMeanings = mcAllMeanings();
+      var qs = [];
+      words.forEach(function(w) {
+        w.senses.forEach(function(s) {
+          var distractors = mcShuffle(allMeanings.filter(function(m) { return m !== s.meaning; })).slice(0, 3);
+          var options = mcShuffle([s.meaning].concat(distractors));
+          qs.push({
+            word: w.word,
+            sentence: s.example,
+            source: s.source,
+            correct: s.meaning,
+            options: options
+          });
+        });
+      });
+      return mcShuffle(qs);
+    }
+
+    function mcShuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    function mcRender() {
+      var q = mcQuestions[mcIdx];
+      document.getElementById('mcSentence').innerHTML = q.sentence;
+      document.getElementById('mcSource').textContent = '——' + q.source;
+      document.getElementById('mcFeedback').textContent = '';
+      document.getElementById('mcFeedback').className = 'feedback';
+      document.getElementById('mcNextBtn').disabled = true;
+      document.getElementById('mcSkipBtn').disabled = false;
+      document.getElementById('mcProgressText').textContent =
+        '第 ' + (mcIdx + 1) + ' / ' + mcQuestions.length + ' 题';
+      document.getElementById('mcProgressFill').style.width =
+        ((mcIdx + 1) / mcQuestions.length * 100) + '%';
+      mcAnswered = false;
+
+      var optEl = document.getElementById('mcOptions');
+      optEl.innerHTML = '';
+      q.options.forEach(function(opt, i) {
+        var btn = document.createElement('button');
+        btn.className = 'option';
+        btn.textContent = ['甲', '乙', '丙', '丁'][i] + ' · ' + opt;
+        btn.dataset.meaning = opt;
+        btn.onclick = function() { mcSelect(btn, opt); };
+        optEl.appendChild(btn);
+      });
+    }
+
+    function mcSelect(btn, meaning) {
+      if (mcAnswered) return;
+      mcAnswered = true;
+
+      var q = mcQuestions[mcIdx];
+      var isCorrect = meaning === q.correct;
+      var fb = document.getElementById('mcFeedback');
+
+      document.querySelectorAll('#mcOptions .option').forEach(function(b) {
+        b.disabled = true;
+        if (b.dataset.meaning === q.correct) b.classList.add('correct');
+        else if (b === btn) b.classList.add('wrong');
+      });
+
+      if (isCorrect) {
+        mcCorrect++;
+        fb.textContent = '✓ 回答正确';
+        fb.className = 'feedback correct';
+      } else {
+        mcWrong++;
+        fb.textContent = '✗ 正确答案：' + q.correct;
+        fb.className = 'feedback wrong';
+      }
+
+      document.getElementById('mcNextBtn').disabled = false;
+      document.getElementById('mcSkipBtn').disabled = true;
+    }
+
+    function mcSkip() {
+      if (mcAnswered) return;
+      mcWrong++;
+      mcAnswered = true;
+      var q = mcQuestions[mcIdx];
+      document.getElementById('mcFeedback').textContent = '已跳过，正确答案：' + q.correct;
+      document.getElementById('mcFeedback').className = 'feedback wrong';
+
+      document.querySelectorAll('#mcOptions .option').forEach(function(b) {
+        b.disabled = true;
+        if (b.dataset.meaning === q.correct) b.classList.add('correct');
+      });
+
+      document.getElementById('mcNextBtn').disabled = false;
+      document.getElementById('mcSkipBtn').disabled = true;
+    }
+
+    function mcNext() {
+      mcIdx++;
+      if (mcIdx >= mcQuestions.length) mcShowSummary();
+      else mcRender();
+    }
+
+    function mcShowSummary() {
+      document.getElementById('mcQuiz').classList.add('hidden');
+      document.getElementById('mcSummary').classList.remove('hidden');
+      document.getElementById('mcTotal').textContent = mcQuestions.length;
+      document.getElementById('mcCorrect').textContent = mcCorrect;
+      document.getElementById('mcWrong').textContent = mcWrong;
+    }
+
+    function mcRestart() {
+      if (words.length === 0) return;
+      mcQuestions = mcGenerateQuestions();
+      mcIdx = 0;
+      mcCorrect = 0;
+      mcWrong = 0;
+      mcStarted = true;
+      document.getElementById('mcQuiz').classList.remove('hidden');
+      document.getElementById('mcSummary').classList.add('hidden');
+      mcRender();
+    }
+
+    // ==================== 键盘快捷键 ====================
+    document.addEventListener('keydown', function(e) {
+      var activeTab = document.querySelector('.tab-btn.active');
+      if (!activeTab) return;
+      var tab = activeTab.dataset.tab;
+
+      if (tab === 'memorize') {
+        if (e.code === 'Space') { e.preventDefault(); memNext(); }
+        if (e.code === 'Enter') { e.preventDefault(); memToggleReveal(); }
+      }
+
+      if (tab === 'selfTest') {
+        if (e.code === 'Space') { e.preventDefault(); if (!stAnswered) stShowAnswer(); }
+        if (e.code === 'Enter') { e.preventDefault(); if (stAnswered) stRate(true); }
+        if (e.code === 'Backspace') { e.preventDefault(); if (stAnswered) stRate(false); }
+      }
+
+      if (tab === 'meaningChoice') {
+        if (mcAnswered && (e.code === 'Space' || e.code === 'Enter')) {
+          e.preventDefault(); mcNext(); return;
+        }
+        if (mcAnswered) return;
+        var keyMap = { 'Digit1': 0, 'Digit2': 1, 'Digit3': 2, 'Digit4': 3 };
+        if (keyMap.hasOwnProperty(e.code)) {
+          e.preventDefault();
+          var btns = document.querySelectorAll('#mcOptions .option');
+          if (btns[keyMap[e.code]]) btns[keyMap[e.code]].click();
+        }
+      }
+    });
+
+    // ==================== 初始化 ====================
+    function initAll() {
+      initHome();
+      memIdx = 0;
+      memRevealed = true;
+      if (words.length > 0) {
+        memRender();
+      }
+      document.getElementById('panelHome').classList.add('active');
+    }
+
+    loadWords();
+  </script>
+</body>
+</html>
