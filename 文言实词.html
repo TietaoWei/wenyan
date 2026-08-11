@@ -85,6 +85,9 @@
     .summary-stat-card { background: rgba(255,255,255,0.35); border: 1px solid rgba(0,0,0,0.08); border-radius: 2px; padding: 24px 12px; text-align: center; }
     .summary-stat-icon { font-size: 22px; margin-bottom: 6px; }
     .summary-stat-number { font-size: 30px; font-weight: 700; color: var(--cinnabar); margin-bottom: 4px; }
+    .word-selector { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; justify-content: center; }
+    .word-selector select { font-family: inherit; font-size: 14px; padding: 6px 10px; border: 1px solid rgba(0,0,0,0.15); border-radius: 3px; background: #fff; color: var(--ink); max-width: 180px; }
+    .word-selector label { font-size: 13px; color: var(--ink-light); }
     .summary-stat-label { font-size: 12px; color: var(--ink-light); letter-spacing: 0.08em; }
     .encourage-msg { text-align: center; font-size: 16px; color: var(--ink-light); line-height: 1.9; margin-bottom: 28px; padding: 18px; background: rgba(196,92,72,0.05); border-left: 3px solid var(--cinnabar); border-radius: 0 4px 4px 0; }
     .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -226,6 +229,12 @@
 
       <!-- 背诵 -->
       <div class="tab-panel" id="panelMemorize">
+        <div class="word-selector">
+          <label>跳转至：</label>
+          <select id="memSelector" onchange="memJumpTo(this.value)">
+            <option value="">-- 选择实词 --</option>
+          </select>
+        </div>
         <section class="card">
           <div class="word-row">
             <span class="big-word" id="memWord">--</span>
@@ -242,6 +251,12 @@
 
       <!-- 选义 / 温故知新 共用面板 -->
       <div class="tab-panel" id="panelMeaningChoice">
+        <div class="word-selector">
+          <label>跳转至：</label>
+          <select id="mcSelector" onchange="mcJumpToWord(this.value)">
+            <option value="">-- 选择实词 --</option>
+          </select>
+        </div>
         <p class="progress-text" id="mcProgressText">第 1 / 0 题</p>
         <div class="progress-bar"><div class="progress-fill" id="mcProgressFill" style="width:0%;"></div></div>
 
@@ -777,9 +792,19 @@
         return '<div class="sense"><p class="meaning">' + (memRevealed ? s.meaning : '？') + '</p><div class="example">' + s.example + '<span class="source-label">——' + s.source + '</span></div></div>';
       }).join('');
       document.getElementById('memToggleBtn').textContent = memRevealed ? '遮蔽释义' : '显示释义';
+      // 更新跳转下拉框选中项
+      var sel = document.getElementById('memSelector');
+      if (sel.options.length > 0) sel.value = String(memIdx);
     }
     function memNext() { memIdx = (memIdx + 1) % words.length; memRevealed = true; memRender(); }
     function memToggleReveal() { memRevealed = !memRevealed; memRender(); }
+    function memJumpTo(val) {
+      if (val === '') return;
+      memIdx = parseInt(val);
+      memRevealed = true;
+      memRender();
+      localStorage.setItem('wenyan_mem_idx', memIdx);
+    }
 
     // ==================== 选义/温故知新 — 共享逻辑 ====================
     var mcMode = 'full';          // 'full' | 'review'
@@ -848,11 +873,36 @@
       mcStartGroup(0);
     }
 
+    // 选义跳转到指定词
+    function mcJumpToWord(val) {
+      if (val === '' || mcWordGroups.length === 0) return;
+      var targetIdx = parseInt(val);
+      // 找到该词在 mcWordGroups 中的位置
+      for (var i = 0; i < mcWordGroups.length; i++) {
+        if (mcWordGroups[i].word === words[targetIdx].word) {
+          mcGroupIdx = i;
+          break;
+        }
+      }
+      mcStartGroup(mcGroupIdx);
+      // 保存进度
+      if (mcMode === 'full') {
+        localStorage.setItem('wenyan_mc_group', mcGroupIdx);
+      } else {
+        localStorage.setItem('wenyan_mc_review_group', mcGroupIdx);
+      }
+    }
+
     function mcStartGroup(idx) {
       if (mcWordGroups.length === 0) return;
       mcGroupIdx = idx;
       mcQIdx = 0;
       mcGroupCorrect = 0;
+      // 同步跳转下拉框
+      var w = mcWordGroups[idx].word;
+      for (var i = 0; i < words.length; i++) {
+        if (words[i].word === w) { document.getElementById('mcSelector').value = String(i); break; }
+      }
       mcGroupWrong = 0;
       mcStarted = true;
       document.getElementById('mcQuiz').classList.remove('hidden');
@@ -1083,9 +1133,18 @@
     });
 
     function initAll() {
-      initHome();
-      memIdx = 0; memRevealed = true;
+      // 填充词库下拉框
+      var opts = words.map(function(w, i) { return '<option value="' + i + '">' + w.word + '</option>'; }).join('');
+      document.getElementById('memSelector').innerHTML = '<option value="">-- 选择实词 --</option>' + opts;
+      document.getElementById('mcSelector').innerHTML = '<option value="">-- 选择实词 --</option>' + opts;
+
+      // 恢复背诵位置
+      memIdx = parseInt(localStorage.getItem('wenyan_mem_idx') || '0');
+      if (memIdx >= words.length) memIdx = 0;
+      memRevealed = true;
       if (words.length > 0) memRender();
+
+      initHome();
       document.getElementById('panelHome').classList.add('active');
     }
 
