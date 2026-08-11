@@ -49,6 +49,18 @@
     header { text-align: center; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 20px; }
     h1 { font-size: 28px; font-weight: 700; letter-spacing: 0.22em; margin-bottom: 8px; }
     .subtitle { font-size: 13px; color: var(--ink-light); letter-spacing: 0.15em; }
+    .user-btn { position: absolute; top: 10px; right: 8px; font-size: 11px; color: var(--cinnabar); cursor: pointer; padding: 3px 10px; border: 1px solid var(--cinnabar); border-radius: 3px; transition: all .2s; }
+    .user-btn:hover { background: var(--cinnabar); color: #fff; }
+    header { position: relative; }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+    .modal-box { background: var(--paper); border-radius: 6px; padding: 32px 28px 24px; width: 340px; max-width: 90vw; text-align: center; position: relative; }
+    .modal-box h3 { margin: 0 0 6px; font-size: 18px; }
+    .modal-desc { font-size: 12px; color: var(--ink-light); margin-bottom: 16px; }
+    .modal-box input { display: block; width: 100%; padding: 10px 12px; margin-bottom: 10px; border: 1px solid rgba(0,0,0,0.15); border-radius: 4px; font-size: 14px; background: #fff; box-sizing: border-box; }
+    .modal-error { color: #C45C48; font-size: 12px; min-height: 18px; margin-bottom: 4px; }
+    .modal-btns { display: flex; gap: 10px; justify-content: center; margin-top: 8px; }
+    .modal-btns .btn-primary, .modal-btns .btn-secondary { flex: 1; margin: 0; padding: 9px 0; }
+    .modal-close { position: absolute; top: 10px; right: 14px; background: none; border: none; font-size: 18px; cursor: pointer; color: var(--ink-light); }
     .seal { display: inline-block; width: 42px; height: 42px; line-height: 42px; margin-left: 10px; border: 2px solid var(--cinnabar); color: var(--cinnabar); font-size: 12px; font-weight: 700; border-radius: 4px; transform: rotate(-6deg); opacity: 0.9; }
 
     .tabs { display: flex; gap: 0; justify-content: center; margin-bottom: 28px; border-bottom: 1px solid rgba(0,0,0,0.1); }
@@ -165,6 +177,7 @@
       <header>
         <h1>文言实词<span class="seal" id="sealChar">记</span></h1>
         <p class="subtitle">积跬步以至千里 · 聚一词以通古文</p>
+        <span class="user-btn" id="userBtn" onclick="showLogin()" title="登录同步进度">登录</span>
       </header>
 
       <nav class="tabs">
@@ -328,10 +341,187 @@
     </div>
   </main>
 
+  <!-- 登录/注册弹窗 -->
+  <div class="modal-overlay" id="loginModal" style="display:none">
+    <div class="modal-box">
+      <h3>登录 / 注册</h3>
+      <p class="modal-desc">登录后可跨设备同步学习进度</p>
+      <input type="text" id="loginUser" placeholder="用户名" autocomplete="username" maxlength="50">
+      <input type="password" id="loginPass" placeholder="密码" autocomplete="current-password" maxlength="100">
+      <div class="modal-error" id="loginError"></div>
+      <div class="modal-btns">
+        <button class="btn-primary" onclick="doLogin()">登 录</button>
+        <button class="btn-secondary" onclick="doRegister()">注 册</button>
+      </div>
+      <button class="modal-close" onclick="hideLogin()" title="取消">✕</button>
+    </div>
+  </div>
+
   <script>
     // ==================== 全局 ====================
     var words = [];
     var REVIEW_INTERVALS = [1, 2, 4, 7, 15, 30];
+    var API_BASE = 'http://localhost:8000';
+    var syncTimer = null;
+
+    // ==================== 登录/同步 ====================
+    function showLogin() {
+      var name = localStorage.getItem('wenyan_username');
+      if (name) {
+        var btn = document.getElementById('userBtn');
+        btn.textContent = name + ' ▾';
+        btn.title = name + '，点击退出登录';
+        btn.onclick = doLogout;
+        return;
+      }
+      document.getElementById('loginModal').style.display = 'flex';
+      document.getElementById('loginError').textContent = '';
+    }
+
+    function hideLogin() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function onAuthSuccess(res) {
+      localStorage.setItem('wenyan_token', res.token);
+      localStorage.setItem('wenyan_username', res.username);
+      hideLogin();
+      var btn = document.getElementById('userBtn');
+      btn.textContent = res.username;
+      btn.title = res.username + '，点击退出登录';
+      btn.onclick = doLogout;
+
+      // 拉取云端进度覆盖本地
+      pullFromServer(function() {
+        // 刷新界面
+        if (typeof currentTab !== 'undefined' && currentTab === 'home') initHome();
+        if (typeof currentTab !== 'undefined' && currentTab === 'summary') initSummary();
+        if (typeof mcGroupIdx !== 'undefined') mcLoadSavedOrStart(mcMode || 'full');
+      });
+
+      // 启动定期同步
+      startSyncTimer();
+    }
+
+    function doLogin() {
+      var u = document.getElementById('loginUser').value.trim();
+      var p = document.getElementById('loginPass').value.trim();
+      if (!u || !p) { document.getElementById('loginError').textContent = '请填写用户名和密码'; return; }
+      fetch(API_BASE + '/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: u, password: p })
+      }).then(function(r) { return r.json(); }).then(function(res) {
+        if (res.ok) onAuthSuccess(res);
+        else document.getElementById('loginError').textContent = res.error;
+      }).catch(function() {
+        document.getElementById('loginError').textContent = '无法连接服务器';
+      });
+    }
+
+    function doRegister() {
+      var u = document.getElementById('loginUser').value.trim();
+      var p = document.getElementById('loginPass').value.trim();
+      if (!u || !p) { document.getElementById('loginError').textContent = '请填写用户名和密码'; return; }
+      if (p.length < 3) { document.getElementById('loginError').textContent = '密码至少3位'; return; }
+      fetch(API_BASE + '/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: u, password: p })
+      }).then(function(r) { return r.json(); }).then(function(res) {
+        if (res.ok) onAuthSuccess(res);
+        else document.getElementById('loginError').textContent = res.error;
+      }).catch(function() {
+        document.getElementById('loginError').textContent = '无法连接服务器';
+      });
+    }
+
+    function doLogout() {
+      if (!confirm('确定退出登录？本地数据不会丢失。')) return;
+      localStorage.removeItem('wenyan_token');
+      localStorage.removeItem('wenyan_username');
+      if (syncTimer) { clearInterval(syncTimer); syncTimer = null; }
+      var btn = document.getElementById('userBtn');
+      btn.textContent = '登录';
+      btn.title = '登录同步进度';
+      btn.onclick = showLogin;
+    }
+
+    function getToken() {
+      return localStorage.getItem('wenyan_token');
+    }
+
+    function pullFromServer(cb) {
+      var token = getToken();
+      if (!token) return;
+      fetch(API_BASE + '/api/progress', {
+        headers: { 'Authorization': 'Bearer ' + token }
+      }).then(function(r) { return r.json(); }).then(function(res) {
+        if (res.ok && res.data) {
+          // 以服务端数据为准，覆盖本地localStorage
+          for (var k in res.data) {
+            if (res.data[k] !== null && res.data[k] !== undefined && k !== '_updated_at') {
+              var v = res.data[k];
+              // 若值为对象，转为JSON字符串存储
+              if (typeof v === 'object') v = JSON.stringify(v);
+              localStorage.setItem(k, String(v));
+            }
+          }
+          if (cb) cb();
+        }
+      }).catch(function() {});
+    }
+
+    function syncToServer() {
+      var token = getToken();
+      if (!token) return;
+      var data = {};
+      ['wenyan_mc_group', 'wenyan_word_stats', 'wenyan_daily_activity',
+       'wenyan_mem_idx', 'wenyan_mc_review_group', 'wenyan_last_date'].forEach(function(k) {
+        var v = localStorage.getItem(k);
+        if (v !== null) data[k] = v;
+      });
+      fetch(API_BASE + '/api/progress', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: data })
+      }).catch(function() {});
+    }
+
+    function startSyncTimer() {
+      if (syncTimer) clearInterval(syncTimer);
+      syncTimer = setInterval(function() {
+        syncToServer();
+        pullFromServer(null);
+      }, 15000); // 每15秒双向同步
+    }
+
+    // 页面加载时：如果已登录，拉取云端进度并启动同步
+    (function() {
+      if (getToken()) {
+        pullFromServer(function() {
+          if (typeof currentTab !== 'undefined' && currentTab === 'home') initHome();
+        });
+        startSyncTimer();
+        var name = localStorage.getItem('wenyan_username');
+        if (name) {
+          var btn = document.getElementById('userBtn');
+          btn.textContent = name;
+          btn.title = name + '，点击退出登录';
+          btn.onclick = doLogout;
+        }
+      }
+    })();
+
+    // 在关键操作后自动同步
+    var _origRecordDailyActivity = null;
+    function _wrapForSync() {
+      // 用MutationObserver或直接hook关键函数
+      setInterval(function() {
+        if (getToken()) syncToServer();
+      }, 30000);
+    }
+    _wrapForSync();
 
     function mcShuffle(arr) {
       var a = arr.slice();
@@ -518,6 +708,7 @@
       var list = type === 'learn' ? act.learn : act.review;
       if (list.indexOf(word) === -1) list.push(word);
       localStorage.setItem('wenyan_daily_activity', JSON.stringify(act));
+      syncToServer();
     }
 
     function getTodayActivity() {
