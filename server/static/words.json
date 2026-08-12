@@ -410,7 +410,6 @@
     "pinyin": "bà",
     "index": 9,
     "senses": [
-      
       {
         "meaning": "罢官，免职",
         "example": "窦太后大怒，乃<b>罢</b>逐赵绾、王臧等。",
@@ -1522,6 +1521,1801 @@
         "meaning": "表明",
         "example": "无人信高洁，谁为<b>表</b>予心。",
         "source": "咏蝉"
+      }
+    ]
+  },
+  {
+    "word": "兵",
+    "pinyin": "bīng",
+    "index": 31,
+    "senses": [
+      {
+        "meaning": "兵器",
+        "example": "收天下之<b>兵</b>，聚之咸阳。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "兵器",
+        "example": "此所谓“藉寇<b>兵</b>而赍盗粮”者也。〔藉：借。赍：送〕",
+        "source": "谏逐客书"
+      },
+      {
+        "meaning": "兵器",
+        "example": "王于兴师，修我甲<b>兵</b>，与子偕行。",
+        "source": "诗经·无衣"
+      },
+      {
+        "meaning": "士兵，军队",
+        "example": "项羽<b>兵</b>四十万，在新丰鸿门。",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "士兵，军队",
+        "example": "楚<b>兵</b>惧，自秦归。",
+        "source": "屈原列传"
+      },
+      {
+        "meaning": "士兵，军队",
+        "example": "起视四境，而秦<b>兵</b>又至矣。",
+        "source": "六国论"
+      },
+      {
+        "meaning": "战争",
+        "example": "自胡马窥江去后，废池乔木，犹厌言<b>兵</b>。",
+        "source": "扬州慢（淮左名都）"
+      },
+      {
+        "meaning": "战争",
+        "example": "又<b>兵</b>象也，于行为金。",
+        "source": "秋声赋"
+      },
+      {
+        "meaning": "战略，策略",
+        "example": "故上<b>兵</b>伐谋，其次伐交。",
+        "source": "孙子"
+      }
+    ]
+  },
+  {
+    "word": "并",
+    "pinyin": "bìng",
+    "index": 32,
+    "senses": [
+      {
+        "meaning": "合，合并",
+        "example": "<b>并</b>力西向，则吾恐秦人食之不得下咽也。",
+        "source": "六国论"
+      },
+      {
+        "meaning": "兼并，吞并",
+        "example": "囊括四海之意，<b>并</b>吞八荒之心。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "兼并，吞并",
+        "example": "<b>并</b>国二十，遂霸西戎。",
+        "source": "谏逐客书"
+      },
+      {
+        "meaning": "一齐，一同",
+        "example": "山东豪俊遂<b>并</b>起而亡秦族矣。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "一齐，一同",
+        "example": "文武<b>并</b>用，垂拱而治。",
+        "source": "谏太宗十思疏"
+      },
+      {
+        "meaning": "一齐，一同",
+        "example": "与旃毛<b>并</b>咽之，数日不死。",
+        "source": "苏武传"
+      },
+      {
+        "meaning": "平行，并列",
+        "example": "而两狼之<b>并</b>驱如故。",
+        "source": "狼"
+      },
+      {
+        "meaning": "平行，并列",
+        "example": "吾与汝<b>并</b>肩携手，低低切切，何事不语？",
+        "source": "与妻书"
+      },
+      {
+        "meaning": "皆，都",
+        "example": "黄发垂髫，<b>并</b>怡然自乐。",
+        "source": "桃花源记"
+      },
+      {
+        "meaning": "皆，都",
+        "example": "少以父任，兄弟<b>并</b>为郎。",
+        "source": "苏武传"
+      },
+      {
+        "meaning": "并且",
+        "example": "即书诗四句，<b>并</b>自为其名。",
+        "source": "伤仲永"
+      },
+      {
+        "meaning": "相当于“连”",
+        "example": "两股间脓血流离，<b>并</b>虫亦不能行捉矣。",
+        "source": "促织"
+      },
+      {
+        "meaning": "相当于“连”",
+        "example": "天将以酬长厚者，遂使抚臣、令尹，<b>并</b>受促织恩荫。",
+        "source": "促织"
+      },
+      {
+        "meaning": "和，以及",
+        "example": "对联、题名<b>并</b>篆文，为字共三十有四。",
+        "source": "核舟记"
+      }
+    ]
+  },
+  {
+    "word": "病",
+    "pinyin": "bìng",
+    "index": 33,
+    "senses": [
+      {
+        "meaning": "疾病，重病",
+        "example": "臣欲奉诏奔驰，则刘<b>病</b>日笃。",
+        "source": "陈情表"
+      },
+      {
+        "meaning": "疾病，重病",
+        "example": "万里悲秋常作客，百年多<b>病</b>独登台。",
+        "source": "登高"
+      },
+      {
+        "meaning": "毛病，缺点",
+        "example": "人皆嗤吾固陋，吾不以为<b>病</b>。",
+        "source": "训俭示康"
+      },
+      {
+        "meaning": "毛病，缺点",
+        "example": "是己而非人，俗之同<b>病</b>。",
+        "source": "问说"
+      },
+      {
+        "meaning": "指责，责备",
+        "example": "今人乃以俭相诟<b>病</b>。",
+        "source": "训俭示康"
+      },
+      {
+        "meaning": "生病",
+        "example": "未果，寻<b>病</b>终，后遂无问津者。",
+        "source": "桃花源记"
+      },
+      {
+        "meaning": "患······病",
+        "example": "<b>病</b>偻，隆然伏行。",
+        "source": "种树郭橐驼传"
+      },
+      {
+        "meaning": "担心，忧虑",
+        "example": "君子<b>病</b>无能焉，不<b>病</b>人之不己知也。",
+        "source": "论语"
+      },
+      {
+        "meaning": "辱，羞辱",
+        "example": "圣人非所与熙也，寡人反取<b>病</b>焉。〔熙：嬉戏〕",
+        "source": "晏子使楚"
+      },
+      {
+        "meaning": "感到痛苦",
+        "example": "饥冻虽切，违已交<b>病</b>。",
+        "source": "归去来兮辞并序"
+      },
+      {
+        "meaning": "病态的",
+        "example": "沉舟侧畔千帆过，<b>病</b>树前头万木春。",
+        "source": "酬乐天扬州初逢席上见赠"
+      },
+      {
+        "meaning": "劳累，疲惫",
+        "example": "今日<b>病</b>矣，予助苗长矣。",
+        "source": "揠苗助长"
+      },
+      {
+        "meaning": "受困，困苦",
+        "example": "向吾不为斯役，则久已<b>病</b>矣。",
+        "source": "捕蛇者说"
+      },
+      {
+        "meaning": "受困，困苦",
+        "example": "故<b>病</b>且怠。",
+        "source": "种树郭橐驼传"
+      }
+    ]
+  },
+  {
+    "word": "博",
+    "pinyin": "bó",
+    "index": 34,
+    "senses": [
+      {
+        "meaning": "宽大",
+        "example": "岂必褒衣<b>博</b>带。",
+        "source": "淮南子"
+      },
+      {
+        "meaning": "广博，广泛",
+        "example": "君子<b>博</b>学而日参省乎己。",
+        "source": "劝学"
+      },
+      {
+        "meaning": "广博，广泛",
+        "example": "<b>博</b>闻强志，明于治乱，娴于辞令。",
+        "source": "屈原列传"
+      },
+      {
+        "meaning": "博学，渊博",
+        "example": "仲尼语之以为<b>博</b>。",
+        "source": "秋水"
+      },
+      {
+        "meaning": "换取，讨取",
+        "example": "顾念蓄劣物终无所用，不如拼<b>博</b>一笑。",
+        "source": "促织"
+      },
+      {
+        "meaning": "赌博",
+        "example": "日抱鸡呼少年<b>博</b>市中。",
+        "source": "书博鸡者事"
+      },
+      {
+        "meaning": "古代一种棋类游戏",
+        "example": "<b>博</b>弈好饮酒，不顾父母之养。〔<b>博</b>弈：下棋〕",
+        "source": "孟子"
+      }
+    ]
+  },
+  {
+    "word": "薄",
+    "pinyin": "bó",
+    "index": 35,
+    "senses": [
+      {
+        "meaning": "微薄，微少",
+        "example": "门衰祚<b>薄</b>，晚有儿息。",
+        "source": "陈情表"
+      },
+      {
+        "meaning": "微薄，微少",
+        "example": "不终岁，<b>薄</b>产累尽。",
+        "source": "促织"
+      },
+      {
+        "meaning": "微薄，微少",
+        "example": "儿已<b>薄</b>禄相，幸复得此妇。",
+        "source": "孔雀东南飞并序"
+      },
+      {
+        "meaning": "淡薄",
+        "example": "慎勿为妇死，贵贱情何<b>薄</b>！",
+        "source": "孔雀东南飞并序"
+      },
+      {
+        "meaning": "淡薄",
+        "example": "世味年来<b>薄</b>似纱，谁令骑马客京华。",
+        "source": "临安春雨初霁"
+      },
+      {
+        "meaning": "与“厚”相对",
+        "example": "狐裘不暖锦衾<b>薄</b>。",
+        "source": "白雪歌送武判官归京"
+      },
+      {
+        "meaning": "靠近，迫近",
+        "example": "日<b>薄</b>西山，气息奄奄。",
+        "source": "陈情表"
+      },
+      {
+        "meaning": "靠近，迫近",
+        "example": "<b>薄</b>暮冥冥，虎啸猿啼。",
+        "source": "岳阳楼记"
+      },
+      {
+        "meaning": "减少",
+        "example": "邻之厚，君之<b>薄</b>也。〔厚：增多〕",
+        "source": "烛之武退秦师"
+      },
+      {
+        "meaning": "减轻",
+        "example": "<b>薄</b>赋敛，广畜积，以实仓廪。",
+        "source": "论贵粟疏"
+      },
+      {
+        "meaning": "鄙薄，轻视",
+        "example": "不宜妄自菲<b>薄</b>。",
+        "source": "出师表"
+      },
+      {
+        "meaning": "草木丛生的地方",
+        "example": "露申辛夷，死林<b>薄</b>兮。",
+        "source": "涉江"
+      }
+    ]
+  },
+  {
+    "word": "步",
+    "pinyin": "bù",
+    "index": 36,
+    "senses": [
+      {
+        "meaning": "左右脚各迈一次为步",
+        "example": "不积跬<b>步</b>，无以至千里。",
+        "source": "劝学"
+      },
+      {
+        "meaning": "左右脚各迈一次为步",
+        "example": "五<b>步</b>一楼，十<b>步</b>一阁。",
+        "source": "阿房宫赋"
+      },
+      {
+        "meaning": "步伐，脚步",
+        "example": "纤纤作细<b>步</b>，精妙世无双。",
+        "source": "孔雀东南飞并序"
+      },
+      {
+        "meaning": "步兵",
+        "example": "诸人徒见操书言水<b>步</b>八十万而各恐慑。",
+        "source": "赤壁之战"
+      },
+      {
+        "meaning": "同“埠”，\n水边停船处",
+        "example": "江之浒，凡舟可縻而上下者日<b>步</b>。",
+        "source": "永州铁炉步志"
+      },
+      {
+        "meaning": "行走",
+        "example": "老臣今者殊不欲食，乃自强<b>步</b>。",
+        "source": "触龙说赵太后"
+      },
+      {
+        "meaning": "使······行走",
+        "example": "<b>步</b>余马于兰皋兮，驰椒丘且焉止息。",
+        "source": "离骚"
+      },
+      {
+        "meaning": "散步",
+        "example": "携手赋诗，<b>步</b>仄径，临清流也。",
+        "source": "山中与裴秀才迪书"
+      },
+      {
+        "meaning": "徒步",
+        "example": "四人持剑盾<b>步</b>走。",
+        "source": "鸿门宴"
+      }
+    ]
+  },
+  {
+    "word": "苍",
+    "pinyin": "cāng",
+    "index": 37,
+    "senses": [
+      {
+        "meaning": "苍老的",
+        "example": "繁茂的样子",
+        "source": "蒹葭苍苍，白露为霜。"
+      },
+      {
+        "meaning": "苍老的",
+        "example": "百姓",
+        "source": "可怜夜半虚前席，不问苍生问鬼神。"
+      },
+      {
+        "meaning": "苍老的",
+        "example": "空旷辽远",
+        "source": "边庭飘那可度，绝域苍茫无所有。"
+      }
+    ]
+  },
+  {
+    "word": "操",
+    "pinyin": "cāo",
+    "index": 38,
+    "senses": [
+      {
+        "meaning": "拿着，握着",
+        "example": "<b>操</b>吴戈兮被犀甲。",
+        "source": "国殇"
+      },
+      {
+        "meaning": "拿着，握着",
+        "example": "杖汉节牧羊，卧起<b>操</b>持，节旄尽落。",
+        "source": "苏武传"
+      },
+      {
+        "meaning": "携带",
+        "example": "至之市而忘<b>操</b>之。",
+        "source": "郑人买履"
+      },
+      {
+        "meaning": "携带",
+        "example": "大王来何<b>操</b>？",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "操纵，掌握",
+        "example": "<b>操</b>蛇之神闻之。",
+        "source": "愚公移山"
+      },
+      {
+        "meaning": "从事",
+        "example": "邑有成名者，<b>操</b>童子业。",
+        "source": "促织"
+      },
+      {
+        "meaning": "采取",
+        "example": "所<b>操</b>之术多异故也。",
+        "source": "答司马谏议书"
+      },
+      {
+        "meaning": "弹奏，抚弄",
+        "example": "<b>操</b>千曲而后晓声，观千剑而后识器。",
+        "source": "文心雕龙"
+      },
+      {
+        "meaning": "操守，品德",
+        "example": "虽贾人，有贤<b>操</b>。",
+        "source": "汉书"
+      },
+      {
+        "meaning": "琴曲名",
+        "example": "初为霖雨之<b>操</b>，更造崩山之音。",
+        "source": "列子"
+      }
+    ]
+  },
+  {
+    "word": "草",
+    "pinyin": "cǎo",
+    "index": 39,
+    "senses": [
+      {
+        "meaning": "草本植物名",
+        "example": "惟<b>草</b>木之零落兮，恐美人之迟暮。",
+        "source": "离骚"
+      },
+      {
+        "meaning": "草本植物名",
+        "example": "多识于鸟兽<b>草</b>木之名。",
+        "source": "论语·阳货"
+      },
+      {
+        "meaning": "青草",
+        "example": "苔痕上阶绿，<b>草</b>色入帘青。",
+        "source": "陋室铭"
+      },
+      {
+        "meaning": "青草",
+        "example": "映阶碧<b>草</b>自春色，隔叶黄鹂空好音。",
+        "source": "蜀相"
+      },
+      {
+        "meaning": "草丛",
+        "example": "成益愕，急逐趁之，蟆入<b>草</b>间。",
+        "source": "促织"
+      },
+      {
+        "meaning": "荒野，野外",
+        "example": "空以身膏<b>草</b>野，谁复知之？",
+        "source": "苏武传"
+      },
+      {
+        "meaning": "草书",
+        "example": "矮纸斜行闲作<b>草</b>，晴窗细乳戏分茶。",
+        "source": "临安春雨初霁"
+      },
+      {
+        "meaning": "粗糙的，简陋的",
+        "example": "方宅十余亩，<b>草</b>屋八九间。",
+        "source": "归园田居"
+      },
+      {
+        "meaning": "粗糙的，简陋的",
+        "example": "三顾臣于<b>草</b>庐之中。",
+        "source": "出师表"
+      },
+      {
+        "meaning": "初步的",
+        "example": "屈原属<b>草</b>稿未定。〔属：写〕",
+        "source": "屈原列传"
+      },
+      {
+        "meaning": "小草，比喻不足珍惜的无价值的东西",
+        "example": "举以予人，如弃<b>草</b>芥。",
+        "source": "六国论"
+      },
+      {
+        "meaning": "受人大恩，死后也要报答",
+        "example": "臣生当陨首，死当结<b>草</b>。",
+        "source": "陈情表"
+      },
+      {
+        "meaning": "轻率",
+        "example": "元嘉<b>草</b><b>草</b>，封狼居胥，赢得仓皇北顾。",
+        "source": "永遇乐·京口北固亭怀古"
+      }
+    ]
+  },
+  {
+    "word": "策",
+    "pinyin": "cè",
+    "index": 40,
+    "senses": [
+      {
+        "meaning": "古代的鞭子",
+        "example": "奋六世之余烈，振长<b>策</b>而御宇内。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "古代的鞭子",
+        "example": "执<b>策</b>而临之。",
+        "source": "马说"
+      },
+      {
+        "meaning": "计策，计谋",
+        "example": "蒙故业，因遗<b>策</b>。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "拄杖",
+        "example": "夸父弃其<b>策</b>，是为邓林。〔邓林：桃林〕",
+        "source": "淮南子"
+      },
+      {
+        "meaning": "成编竹简，后泛指书籍",
+        "example": "执<b>策</b>映长明灯读。",
+        "source": "王冕读书"
+      },
+      {
+        "meaning": "鞭打，驾驭",
+        "example": "<b>策</b>之不以其道。",
+        "source": "马说"
+      },
+      {
+        "meaning": "拄着",
+        "example": "<b>策</b>扶老以流憩。〔扶老：手杖。流：周游〕",
+        "source": "归去来兮辞并序"
+      },
+      {
+        "meaning": "记录，记载",
+        "example": "<b>策</b>勋十二转，赏赐百千强。",
+        "source": "木兰诗"
+      }
+    ]
+  },
+  {
+    "word": "曾",
+    "pinyin": "céng",
+    "index": 41,
+    "senses": [
+      {
+        "meaning": "曾经",
+        "example": "携来百侣<b>曾</b>游。",
+        "source": "沁园春·长沙"
+      },
+      {
+        "meaning": "曾经",
+        "example": "同是天涯沦落人，相逢何必<b>曾</b>相识。",
+        "source": "琵琶行并序"
+      },
+      {
+        "meaning": "竟，竟然，连······都。音 zēng",
+        "example": "则天地<b>曾</b>不能以一瞬。",
+        "source": "赤壁赋"
+      },
+      {
+        "meaning": "尚，还",
+        "example": "<b>曾</b>记否，到中流击水，浪遏飞舟？",
+        "source": "沁园春·长沙"
+      },
+      {
+        "meaning": "一直，从来",
+        "example": "既醉而退，<b>曾</b>不吝情去留。〔吝情：挂心在意〕",
+        "source": "五柳先生传"
+      },
+      {
+        "meaning": "同“层”，重叠的",
+        "example": "荡胸生<b>曾</b>云，决眦入归鸟。",
+        "source": "望岳"
+      },
+      {
+        "meaning": "同“增”，增加。音zēng",
+        "example": "所以动心忍性，<b>曾</b>益其所不能。",
+        "source": "孟子"
+      },
+      {
+        "meaning": "姓氏用字。音 zēng",
+        "example": "<b>曾</b>子曰：“士不可以不弘毅，任重而道远。”",
+        "source": "《论语》十二章"
+      }
+    ]
+  },
+  {
+    "word": "察",
+    "pinyin": "chá",
+    "index": 42,
+    "senses": [
+      {
+        "meaning": "观察，仔细看",
+        "example": "徐而<b>察</b>之，则山下皆石穴罅。",
+        "source": "石钟山记"
+      },
+      {
+        "meaning": "观察，仔细看",
+        "example": "仰观宇宙之大，俯<b>察</b>品类之盛。",
+        "source": "兰亭集序"
+      },
+      {
+        "meaning": "明察，了解",
+        "example": "小大之狱，虽不能<b>察</b>，必以情。",
+        "source": "曹刿论战"
+      },
+      {
+        "meaning": "明察，了解",
+        "example": "又恐汝不<b>察</b>吾衷。",
+        "source": "与妻书"
+      },
+      {
+        "meaning": "考察，审察",
+        "example": "<b>察</b>邻国之政，无如寡人之用心者。",
+        "source": "孟子"
+      },
+      {
+        "meaning": "考察，审察",
+        "example": "不可不<b>察</b>乱之所自起。",
+        "source": "兼爱"
+      },
+      {
+        "meaning": "看清",
+        "example": "明足以<b>察</b>秋毫之末。〔明：视力〕",
+        "source": "齐桓晋文之事"
+      },
+      {
+        "meaning": "理解，谅解",
+        "example": "终必不蒙见<b>察</b>。",
+        "source": "答司马谏议书"
+      },
+      {
+        "meaning": "推荐，推举",
+        "example": "前太守臣逵，<b>察</b>臣孝廉。",
+        "source": "陈情表"
+      },
+      {
+        "meaning": "苛刻，精明",
+        "example": "水至清则无鱼，人至<b>察</b>则无徒。",
+        "source": "大戴礼记"
+      },
+      {
+        "meaning": "察察：洁净的样子",
+        "example": "人又谁能以身之<b>察</b><b>察</b>，受物之汶汶者乎？",
+        "source": "屈原列传"
+      }
+    ]
+  },
+  {
+    "word": "尝",
+    "pinyin": "cháng",
+    "index": 43,
+    "senses": [
+      {
+        "meaning": "食、吃\n\n\n尝试",
+        "example": "士卒不尽食，广不<b>尝</b>食。",
+        "source": "李将军列传"
+      },
+      {
+        "meaning": "食、吃\n\n\n尝试",
+        "example": "我虽不敏，请<b>尝</b>试之。",
+        "source": "齐桓晋文之事"
+      },
+      {
+        "meaning": "食、吃\n\n\n尝试",
+        "example": "技经肯繁之未<b>尝</b>。〔技：枝〕",
+        "source": "庖丁解牛"
+      },
+      {
+        "meaning": "经历，遇到",
+        "example": "险阻艰难，备<b>尝</b>之矣。",
+        "source": "左传"
+      },
+      {
+        "meaning": "曾经",
+        "example": "吾<b>尝</b>终日而思矣，不如须臾之所学也。",
+        "source": "劝学"
+      },
+      {
+        "meaning": "曾经",
+        "example": "家有老妪，<b>尝</b>居于此。",
+        "source": "项脊轩志"
+      },
+      {
+        "meaning": "曾经",
+        "example": "赵<b>尝</b>五战于秦，二败而三胜。",
+        "source": "六国论"
+      }
+    ]
+  },
+  {
+    "word": "长",
+    "pinyin": "cháng",
+    "index": 44,
+    "senses": [
+      {
+        "meaning": "与“短”相对",
+        "example": "登高而招，臂非加<b>长</b>也，而见者远。",
+        "source": "劝学"
+      },
+      {
+        "meaning": "时间久，长久",
+        "example": "举手<b>长</b>劳劳，二情同依依。",
+        "source": "孔雀东南飞并序"
+      },
+      {
+        "meaning": "时间久，长久",
+        "example": "是臣尽节于陛下之日<b>长</b>。",
+        "source": "陈情表"
+      },
+      {
+        "meaning": "距离长，远",
+        "example": "塞源而欲流<b>长</b>者也。",
+        "source": "谏太宗十思疏"
+      },
+      {
+        "meaning": "高。作名词，身高",
+        "example": "今日被驱遣，小姑如我<b>长</b>。",
+        "source": "孔雀东南飞并序"
+      },
+      {
+        "meaning": "高。作名词，身高",
+        "example": "（项）藉<b>长</b>八尺有余。",
+        "source": "项羽本纪"
+      },
+      {
+        "meaning": "年纪大。音zhǎng",
+        "example": "孰与君少<b>长</b>？",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "年纪大。音zhǎng",
+        "example": "无贵无贱，无<b>长</b>无少。",
+        "source": "师说"
+      },
+      {
+        "meaning": "长厚：恭谨宽厚。",
+        "example": "天将以酬<b>长</b>厚者。",
+        "source": "促织"
+      },
+      {
+        "meaning": "擅长",
+        "example": "西人<b>长</b>火器而短技击。",
+        "source": "冯婉贞"
+      },
+      {
+        "meaning": "生长。\n音 zhǎng",
+        "example": "故吾不害其<b>长</b>而已。",
+        "source": "种树郭橐驼传"
+      },
+      {
+        "meaning": "增长，滋长。音 zhǎng",
+        "example": "盈虚者如彼，而卒莫消<b>长</b>也。",
+        "source": "赤壁赋"
+      },
+      {
+        "meaning": "统治，管理。音 zhǎng",
+        "example": "见<b>长</b>人者好烦其令。",
+        "source": "种树郭橐驼传"
+      },
+      {
+        "meaning": "长处，优势",
+        "example": "试使山东之国与陈涉度<b>长</b>絮大······〔絮：比较〕",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "长处，优势",
+        "example": "兼百花之<b>长</b>而各去其短。",
+        "source": "芙葉"
+      },
+      {
+        "meaning": "经常，总是",
+        "example": "不应有恨，何事<b>长</b>向别时圆？",
+        "source": "水调歌头"
+      },
+      {
+        "meaning": "经常，总是",
+        "example": "出师未捷身先死，<b>长</b>使英雄泪满襟。",
+        "source": "蜀相"
+      }
+    ]
+  },
+  {
+    "word": "朝",
+    "pinyin": "cháo",
+    "index": 45,
+    "senses": [
+      {
+        "meaning": "早晨。\n音 zhāo",
+        "example": "譬如<b>朝</b>露，去日苦多。",
+        "source": "短歌行"
+      },
+      {
+        "meaning": "早晨。\n音 zhāo",
+        "example": "<b>朝</b>歌夜弦，为秦宫人。",
+        "source": "阿房宫赋"
+      },
+      {
+        "meaning": "一日，一天。音 zhāo",
+        "example": "今一<b>朝</b>而鬻技百金。",
+        "source": "五石之瓠"
+      },
+      {
+        "meaning": "朝廷",
+        "example": "使天下仕者皆欲立于王之<b>朝</b>。",
+        "source": "齐桓晋文之事"
+      },
+      {
+        "meaning": "朝廷",
+        "example": "议法度而修之于<b>朝</b>廷。",
+        "source": "答司马谏议书"
+      },
+      {
+        "meaning": "朝代",
+        "example": "逮奉圣<b>朝</b>，沐浴清化。",
+        "source": "陈情表"
+      },
+      {
+        "meaning": "一代君主统治期",
+        "example": "三顾频烦天下计，两<b>朝</b>开济老臣心。",
+        "source": "蜀相"
+      },
+      {
+        "meaning": "朝见，上朝",
+        "example": "相如每<b>朝</b>时，常称病。",
+        "source": "廉颇蔺相如列传"
+      },
+      {
+        "meaning": "朝见，上朝",
+        "example": "此吾祖太常公宣德间执此以<b>朝</b>。",
+        "source": "项脊轩志"
+      },
+      {
+        "meaning": "朝拜，臣服",
+        "example": "强国请服，弱国入<b>朝</b>。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "使朝拜，使臣服",
+        "example": "序八州而<b>朝</b>同列，百有余年矣。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "使朝拜，使臣服",
+        "example": "欲辟土地，<b>朝</b>秦、楚。",
+        "source": "齐桓晋文之事"
+      }
+    ]
+  },
+  {
+    "word": "彻",
+    "pinyin": "chè",
+    "index": 46,
+    "senses": [
+      {
+        "meaning": "结束，终了",
+        "example": "自经丧乱少睡眠，长夜沾湿何由<b>彻</b>？",
+        "source": "茅屋为秋风所破歌"
+      },
+      {
+        "meaning": "同“撤”，撤去",
+        "example": "<b>彻</b>其环琪，至老不嫁，以养父母。",
+        "source": "战国策"
+      },
+      {
+        "meaning": "通，通达",
+        "example": "汝心之固，固不可<b>彻</b>。",
+        "source": "愚公移山"
+      }
+    ]
+  },
+  {
+    "word": "陈",
+    "pinyin": "chén",
+    "index": 47,
+    "senses": [
+      {
+        "meaning": "陈列，摆列",
+        "example": "信臣精卒<b>陈</b>利兵而谁何。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "陈列，摆列",
+        "example": "山肴野蔌，杂然而前<b>陈</b>者，太守宴也。",
+        "source": "醉翁亭记"
+      },
+      {
+        "meaning": "陈述，陈说",
+        "example": "得夜见汉使，具自<b>陈</b>道。",
+        "source": "苏武传"
+      },
+      {
+        "meaning": "施展",
+        "example": "<b>陈</b>力就列，不能者止。",
+        "source": "季氏将伐颛臾"
+      },
+      {
+        "meaning": "列队",
+        "example": "诸郎中执兵，皆<b>陈</b>殿下。",
+        "source": "荆轲刺秦王"
+      },
+      {
+        "meaning": "同“阵”，布阵。\n音 zhèn",
+        "example": "既<b>陈</b>而后击之，宋师败绩。",
+        "source": "子鱼论战"
+      },
+      {
+        "meaning": "殿堂下陈放礼品、站列婢妾的地方",
+        "example": "所以饰后宫、充下<b>陈</b>、娱心意、说耳目者，必出于秦然后可。",
+        "source": "谏逐客书"
+      },
+      {
+        "meaning": "同阵，阵地。音 zhèn",
+        "example": "前未至匈奴<b>陈</b>二里所。",
+        "source": "李将军列传"
+      },
+      {
+        "meaning": "旧的，陈旧。与“新”相对",
+        "example": "向之所欣，俯仰之间，已为<b>陈</b>迹。",
+        "source": "兰亭集序"
+      }
+    ]
+  },
+  {
+    "word": "称",
+    "pinyin": "chēng",
+    "index": 48,
+    "senses": [
+      {
+        "meaning": "举起",
+        "example": "<b>称</b>彼兕觥。〔兕觥：犀牛角做的酒具〕",
+        "source": "诗经"
+      },
+      {
+        "meaning": "称颂，称赞",
+        "example": "先帝<b>称</b>之曰能。",
+        "source": "出师表"
+      },
+      {
+        "meaning": "称颂，称赞",
+        "example": "楚有宋玉、唐勒、景差之徒者，皆好辞而以赋见<b>称</b>。",
+        "source": "屈原列传"
+      },
+      {
+        "meaning": "称作，号称",
+        "example": "幸蒙大恩，赐号<b>称</b>王。",
+        "source": "苏武传"
+      },
+      {
+        "meaning": "声言，声称",
+        "example": "手把文书口<b>称</b>敕。",
+        "source": "卖炭翁"
+      },
+      {
+        "meaning": "称述，述说",
+        "example": "上<b>称</b>帝喾，下道齐桓。",
+        "source": "屈原列传"
+      },
+      {
+        "meaning": "相称，相当。音 chèn",
+        "example": "令作诗，不能<b>称</b>前时之闻。",
+        "source": "伤仲永"
+      },
+      {
+        "meaning": "适合，符合。音 chèn",
+        "example": "<b>称</b>心快意，几家能毂？",
+        "source": "与妻书"
+      }
+    ]
+  },
+  {
+    "word": "诚",
+    "pinyin": "chéng",
+    "index": 49,
+    "senses": [
+      {
+        "meaning": "真诚，诚心",
+        "example": "知至而后意<b>诚</b>，意<b>诚</b>而后心正。",
+        "source": "大学之道"
+      },
+      {
+        "meaning": "真诚，诚心",
+        "example": "夫在殷忧，必竭<b>诚</b>以待下。",
+        "source": "谏太宗十思疏"
+      },
+      {
+        "meaning": "确实，实在",
+        "example": "战败而亡，<b>诚</b>不得已。",
+        "source": "六国论"
+      },
+      {
+        "meaning": "确实，实在",
+        "example": "此<b>诚</b>危急存亡之秋也。",
+        "source": "出师表"
+      },
+      {
+        "meaning": "究竟，到底",
+        "example": "王笑曰：“是<b>诚</b>何心哉？”",
+        "source": "齐桓晋文之事"
+      },
+      {
+        "meaning": "果真，如果",
+        "example": "楚<b>诚</b>能绝齐，秦愿献商於之地六百里。",
+        "source": "屈原列传"
+      },
+      {
+        "meaning": "果真，如果",
+        "example": "<b>诚</b>能见可欲则思知足以自戒。",
+        "source": "谏太宗十思疏"
+      }
+    ]
+  },
+  {
+    "word": "乘",
+    "pinyin": "chéng",
+    "index": 50,
+    "senses": [
+      {
+        "meaning": "登，升",
+        "example": "<b>乘</b>彼垝垣，以望复关。〔垝垣：坏墙〕",
+        "source": "诗经·氓"
+      },
+      {
+        "meaning": "乘坐，驾",
+        "example": "公与之<b>乘</b>。",
+        "source": "曹刿论战"
+      },
+      {
+        "meaning": "乘坐，驾",
+        "example": "独与迈<b>乘</b>小舟至绝壁下。",
+        "source": "石钟山记"
+      },
+      {
+        "meaning": "骑",
+        "example": "服太阿之剑，<b>乘</b>纤离之马。",
+        "source": "谏逐客书"
+      },
+      {
+        "meaning": "骑",
+        "example": "<b>乘</b>骐骥以驰骋兮，来吾道夫先路！",
+        "source": "离骚"
+      },
+      {
+        "meaning": "趁着，凭借，利用",
+        "example": "因利<b>乘</b>便。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "趁着，凭借，利用",
+        "example": "<b>乘</b>醉听箫鼓，吟赏烟霞。",
+        "source": "望海潮·东南形胜"
+      },
+      {
+        "meaning": "接连，交加",
+        "example": "兵旱相<b>乘</b>，天下大屈。〔屈：缺〕",
+        "source": "论积贮疏"
+      },
+      {
+        "meaning": "冒着",
+        "example": "自京师<b>乘</b>风雪，历齐河、长清。",
+        "source": "登泰山记"
+      },
+      {
+        "meaning": "顺应",
+        "example": "聊<b>乘</b>化以归尽，乐夫天命复奚疑！",
+        "source": "归去来兮辞并序"
+      },
+      {
+        "meaning": "兵车。\n音 shèng",
+        "example": "千<b>乘</b>之国，摄乎大国之间。〔摄：夹〕",
+        "source": "论语·先进"
+      },
+      {
+        "meaning": "兵车。\n音 shèng",
+        "example": "然秦以区区之地，致万<b>乘</b>之势。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "参乘 shèng：古时乘车，在车右边陪乘或担任警卫的人",
+        "example": "沛公之参<b>乘</b>樊哙者也。",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "代指“四”，\n音 shèng",
+        "example": "以<b>乘</b>韦先，牛十二犒师。",
+        "source": "秦晋般之战"
+      },
+      {
+        "meaning": "辆。\n音 shèng",
+        "example": "于是为长安君约车百<b>乘</b>。",
+        "source": "触龙说赵太后"
+      }
+    ]
+  },
+  {
+    "word": "驰",
+    "pinyin": "chí",
+    "index": 51,
+    "senses": [
+      {
+        "meaning": "赶马奔跑",
+        "example": "项伯乃夜<b>驰</b>之沛公军。",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "赶马奔跑",
+        "example": "卫律惊，自抱持武，<b>驰</b>召医。",
+        "source": "苏武传"
+      },
+      {
+        "meaning": "驱马（车）追击",
+        "example": "齐师败绩，公将<b>驰</b>之。",
+        "source": "曹刿论战"
+      },
+      {
+        "meaning": "骑（马）",
+        "example": "愿<b>驰</b>千里足，送儿还故乡。",
+        "source": "木兰诗"
+      },
+      {
+        "meaning": "疾行，奔跑",
+        "example": "山舞银蛇，原<b>驰</b>蜡象。",
+        "source": "沁园春·雪"
+      },
+      {
+        "meaning": "奔走，奔波",
+        "example": "文武争<b>驰</b>，在君无事。",
+        "source": "谏太宗十思疏"
+      },
+      {
+        "meaning": "消失，逝去",
+        "example": "年与时<b>驰</b>，意与日去。",
+        "source": "诫子书"
+      },
+      {
+        "meaning": "疾速，快",
+        "example": "每冒风<b>驰</b>行，未百步辄返。",
+        "source": "满井游记"
+      }
+    ]
+  },
+  {
+    "word": "冲",
+    "pinyin": "chōng",
+    "index": 52,
+    "senses": [
+      {
+        "meaning": "交通要道",
+        "example": "韩、魏塞秦之<b>冲</b>，而蔽山东之诸侯。",
+        "source": "六国论"
+      },
+      {
+        "meaning": "直向上",
+        "example": "此鸟不飞则已，一飞<b>冲</b>天。",
+        "source": "史记"
+      },
+      {
+        "meaning": "向上顶起",
+        "example": "怒发<b>冲</b>冠，凭栏处、潇潇雨歇。",
+        "source": "满江红"
+      },
+      {
+        "meaning": "碰撞，触犯",
+        "example": "稍近益狎，荡倚<b>冲</b>冒。",
+        "source": "黔之驴"
+      },
+      {
+        "meaning": "冲击，水流撞击",
+        "example": "下有<b>冲</b>波逆折之回川。",
+        "source": "蜀道难"
+      },
+      {
+        "meaning": "谦虚",
+        "example": "念高危则思谦<b>冲</b>而自牧。〔自牧：加强自我修养〕",
+        "source": "谏太宗十思疏"
+      }
+    ]
+  },
+  {
+    "word": "出",
+    "pinyin": "chū",
+    "index": 53,
+    "senses": [
+      {
+        "meaning": "对外",
+        "example": "指雪花",
+        "source": "定要感的六出冰花滚似锦。"
+      }
+    ]
+  },
+  {
+    "word": "除",
+    "pinyin": "chú",
+    "index": 54,
+    "senses": [
+      {
+        "meaning": "台阶",
+        "example": "扶辇下<b>除</b>，触柱折辕。",
+        "source": "苏武传"
+      },
+      {
+        "meaning": "任命，授职",
+        "example": "寻蒙国恩，<b>除</b>臣洗马。",
+        "source": "陈情表"
+      },
+      {
+        "meaning": "清除，除去",
+        "example": "攘<b>除</b>奸凶，兴复汉室。",
+        "source": "出师表"
+      },
+      {
+        "meaning": "革除，消除",
+        "example": "举先王之政，以兴利<b>除</b>弊。",
+        "source": "答司马谏议书"
+      },
+      {
+        "meaning": "整治，整修",
+        "example": "即<b>除</b>魏阉废祠之址以葬之。",
+        "source": "五人墓碑记"
+      },
+      {
+        "meaning": "逝去",
+        "example": "爆竹声中一岁<b>除</b>，春风送暖入屠苏。",
+        "source": "元日"
+      },
+      {
+        "meaning": "除了，除非",
+        "example": "<b>除</b>吾死外，当无见期。",
+        "source": "祭妹文"
+      }
+    ]
+  },
+  {
+    "word": "处",
+    "pinyin": "chǔ",
+    "index": 55,
+    "senses": [
+      {
+        "meaning": "停留",
+        "example": "卷甲而趋，日夜不<b>处</b>。",
+        "source": "孙子"
+      },
+      {
+        "meaning": "居住，住在",
+        "example": "幽独<b>处</b>乎山中。",
+        "source": "涉江"
+      },
+      {
+        "meaning": "居住，住在",
+        "example": "齐人有一妻一妾而<b>处</b>室者。",
+        "source": "孟子"
+      },
+      {
+        "meaning": "占有，据有",
+        "example": "号物之数谓之万，人<b>处</b>一焉。",
+        "source": "庄子·秋水"
+      },
+      {
+        "meaning": "占有，据有",
+        "example": "富与贵，是人之所欲也，不以其道得之，不<b>处</b>也。",
+        "source": "论语·里仁"
+      },
+      {
+        "meaning": "为，做",
+        "example": "故有道者不<b>处</b>。",
+        "source": "《老子》四章"
+      },
+      {
+        "meaning": "保持",
+        "example": "德不<b>处</b>其厚，情不胜其欲。",
+        "source": "谏太宗十思疏"
+      },
+      {
+        "meaning": "处在，身处",
+        "example": "且燕赵<b>处</b>秦革灭殆尽之际。",
+        "source": "六国论"
+      },
+      {
+        "meaning": "处在，身处",
+        "example": "吾辈<b>处</b>今日之中国。",
+        "source": "与妻书"
+      },
+      {
+        "meaning": "相处，交往",
+        "example": "窃以为与君实游<b>处</b>相好之日久。",
+        "source": "答司马谏议书"
+      },
+      {
+        "meaning": "处理，处置",
+        "example": "<b>处</b>分适兄意，那得自任专！",
+        "source": "孔雀东南飞并序"
+      },
+      {
+        "meaning": "处所，地方。音 chù",
+        "example": "良将劲弩守要害之<b>处</b>。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "时，时候。\n音 chù",
+        "example": "都门帐饮无绪，留恋<b>处</b>，兰舟催发。",
+        "source": "雨霖铃"
+      }
+    ]
+  },
+  {
+    "word": "传",
+    "pinyin": "chuán",
+    "index": 56,
+    "senses": [
+      {
+        "meaning": "传送，传递",
+        "example": "纤云弄巧，飞星<b>传</b>恨。",
+        "source": "鹊桥仙（纤云弄巧）"
+      },
+      {
+        "meaning": "传授",
+        "example": "师者，所以<b>传</b>道受业解惑也。",
+        "source": "师说"
+      },
+      {
+        "meaning": "传承",
+        "example": "师道之不<b>传</b>也久矣！",
+        "source": "师说"
+      },
+      {
+        "meaning": "流传，传布",
+        "example": "此事所以不<b>传</b>也。",
+        "source": "石钟山记"
+      },
+      {
+        "meaning": "记述。\n音 zhuàn",
+        "example": "<b>传</b>其事以为官戒也。",
+        "source": "种树郭橐驼传"
+      },
+      {
+        "meaning": "解释经义的著作。\n音 zhuàn",
+        "example": "六艺经<b>传</b>皆通习之。",
+        "source": "师说"
+      },
+      {
+        "meaning": "驿站车马。\n音 zhuàn",
+        "example": "（杨）素复乘<b>传</b>至会稽。",
+        "source": "隋书·杨素传"
+      },
+      {
+        "meaning": "馆舍，驿站",
+        "example": "舍相如广成<b>传</b>舍。",
+        "source": "廉颇蔺相如列传"
+      },
+      {
+        "meaning": "传记。\n音 zhuàn",
+        "example": "汝之生平，吾已作<b>传</b>。",
+        "source": "祭妹文"
+      }
+    ]
+  },
+  {
+    "word": "垂",
+    "pinyin": "chuí",
+    "index": 57,
+    "senses": [
+      {
+        "meaning": "敬辞",
+        "example": "<b>垂</b>衣拱手，指不亲自处理政务",
+        "source": "鸣琴垂拱，不言而化。"
+      }
+    ]
+  },
+  {
+    "word": "辞",
+    "pinyin": "cí",
+    "index": 58,
+    "senses": [
+      {
+        "meaning": "口供，供词",
+        "example": "吏捕孝妇，孝妇<b>辞</b>不杀姑。",
+        "source": "汉书"
+      },
+      {
+        "meaning": "言辞，言语",
+        "example": "晏婴，齐之习<b>辞</b>者也。",
+        "source": "晏子使楚"
+      },
+      {
+        "meaning": "文辞，词句",
+        "example": "皆好<b>辞</b>而以赋见称。",
+        "source": "屈原列传"
+      },
+      {
+        "meaning": "文辞，词句",
+        "example": "其文约，其<b>辞</b>微。",
+        "source": "屈原列传"
+      },
+      {
+        "meaning": "借口，托辞",
+        "example": "动以朝廷为<b>辞</b>。",
+        "source": "赤壁之战"
+      },
+      {
+        "meaning": "一种文体",
+        "example": "归去来兮<b>辞</b>并序",
+        "source": "归去来兮辞并序"
+      },
+      {
+        "meaning": "推辞，推托，拒绝",
+        "example": "臣死且不避，卮酒安足<b>辞</b>！",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "推辞，推托，拒绝",
+        "example": "莫<b>辞</b>更坐弹一曲，为君翻作《琵琶行》。",
+        "source": "琵琶行并序"
+      },
+      {
+        "meaning": "回避、避开",
+        "example": "大行不顾细谨，大礼不<b>辞</b>小让。",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "告辞，告别",
+        "example": "沛公不胜杯杓，不能<b>辞</b>。",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "告辞，告别",
+        "example": "<b>辞</b>楼下殿，辇来于秦。",
+        "source": "阿房宫赋"
+      },
+      {
+        "meaning": "长辞，诀别",
+        "example": "念与世间<b>辞</b>，千万不复全！",
+        "source": "孔雀东南飞并序"
+      },
+      {
+        "meaning": "辞让",
+        "example": "伯夷<b>辞</b>让以为名。",
+        "source": "庄子·秋水"
+      },
+      {
+        "meaning": "审讯，责备",
+        "example": "单于使卫律召武受<b>辞</b>。",
+        "source": "苏武传"
+      }
+    ]
+  },
+  {
+    "word": "次",
+    "pinyin": "cì",
+    "index": 59,
+    "senses": [
+      {
+        "meaning": "驻扎，住宿",
+        "example": "又间令吴广之<b>次</b>所旁丛祠中。",
+        "source": "陈涉世家"
+      },
+      {
+        "meaning": "驻扎，住宿",
+        "example": "操军不利，引<b>次</b>江北。",
+        "source": "赤壁之战"
+      },
+      {
+        "meaning": "等候",
+        "example": "秦伯素服郊<b>次</b>。",
+        "source": "秦晋般之战"
+      },
+      {
+        "meaning": "依次编列",
+        "example": "陈胜、吴广皆<b>次</b>当行，为屯长。〔当行：征发的队伍〕",
+        "source": "陈涉世家"
+      },
+      {
+        "meaning": "居其次，排第二",
+        "example": "全军为上，破军<b>次</b>之。",
+        "source": "孙子"
+      },
+      {
+        "meaning": "次一等",
+        "example": "故上兵伐谋，其<b>次</b>伐交。",
+        "source": "孙子"
+      },
+      {
+        "meaning": "次序，顺序",
+        "example": "秦武阳奉地图匣，以<b>次</b>进。",
+        "source": "荆轲刺秦王"
+      },
+      {
+        "meaning": "旁边，近旁",
+        "example": "引以为流觞曲水，列坐其<b>次</b>。",
+        "source": "兰亭集序"
+      },
+      {
+        "meaning": "光景，情形",
+        "example": "这<b>次</b>第，怎一个愁字了得？",
+        "source": "声声慢"
+      }
+    ]
+  },
+  {
+    "word": "刺",
+    "pinyin": "cì",
+    "index": 60,
+    "senses": [
+      {
+        "meaning": "名帖",
+        "example": "古代州级最高行政长官",
+        "source": "后刺史臣荣举臣秀才。"
+      }
+    ]
+  },
+  {
+    "word": "从",
+    "pinyin": "cóng",
+    "index": 61,
+    "senses": [
+      {
+        "meaning": "跟随，跟从",
+        "example": "张良是时<b>从</b>沛公。",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "跟随，跟从",
+        "example": "赢粮而景<b>从</b>。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "使跟从，带领",
+        "example": "沛公旦日<b>从</b>百余骑来见项王。",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "顺从，听从",
+        "example": "公<b>从</b>之。",
+        "source": "烛之武退秦师"
+      },
+      {
+        "meaning": "顺从，听从",
+        "example": "吾已失恩义，会不相<b>从</b>许！",
+        "source": "孔雀东南飞并序"
+      },
+      {
+        "meaning": "紧挨着",
+        "example": "樊哙<b>从</b>良坐。",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "参加，从事",
+        "example": "弟走<b>从</b>军阿姨死。",
+        "source": "琵琶行并序"
+      },
+      {
+        "meaning": "参加，从事",
+        "example": "尝<b>从</b>人事，皆口腹自役。",
+        "source": "归去来兮辞并序"
+      },
+      {
+        "meaning": "采纳",
+        "example": "简能而任之，择善而<b>从</b>之。",
+        "source": "谏太宗十思疏"
+      },
+      {
+        "meaning": "同“纵”，\n合纵。\n音zòng",
+        "example": "合<b>从</b>缔交，相与为一。",
+        "source": "过秦论"
+      },
+      {
+        "meaning": "堂房亲属。旧读zòng",
+        "example": "广<b>从</b>弟李蔡亦为郎。〔<b>从</b>弟：堂弟〕",
+        "source": "李将军列传"
+      },
+      {
+        "meaning": "由，自",
+        "example": "我<b>从</b>去年辞帝京。",
+        "source": "琵琶行并序"
+      },
+      {
+        "meaning": "由，自",
+        "example": "<b>从</b>郦山下，道芷阳间行。",
+        "source": "鸿门宴"
+      },
+      {
+        "meaning": "在",
+        "example": "吾<b>从</b>板外相为应答。",
+        "source": "项脊轩志"
+      },
+      {
+        "meaning": "在",
+        "example": "巫<b>从</b>旁望空代祝。",
+        "source": "促织"
+      },
+      {
+        "meaning": "跟，向",
+        "example": "时至轩中，<b>从</b>余问古事。",
+        "source": "项脊轩志"
+      }
+    ]
+  },
+  {
+    "word": "错",
+    "pinyin": "cuò",
+    "index": 62,
+    "senses": [
+      {
+        "meaning": "涂饰",
+        "example": "美人赠我金<b>错</b>刀。〔金<b>错</b>刀：镀金的刀〕",
+        "source": "四愁诗"
+      },
+      {
+        "meaning": "交错，错杂",
+        "example": "嘈嘈切切<b>错</b>杂弹。",
+        "source": "琵琶行并序"
+      },
+      {
+        "meaning": "同“措”，\n放置",
+        "example": "以君为长者，故不<b>错</b>意也。〔<b>错</b>意：在意〕",
+        "source": "唐雎不辱使命"
+      },
+      {
+        "meaning": "错杂的，交错的",
+        "example": "而境界危恶，层见<b>错</b>出，非人世所堪。",
+        "source": "《指南录》后序"
+      },
+      {
+        "meaning": "磨刀石",
+        "example": "它山之石，可以为<b>错</b>。",
+        "source": "诗经"
+      },
+      {
+        "meaning": "同“措”，\n举措",
+        "example": "偭规矩而改<b>错</b>。",
+        "source": "离骚"
+      }
+    ]
+  },
+  {
+    "word": "达",
+    "pinyin": "dá",
+    "index": 63,
+    "senses": [
+      {
+        "meaning": "道路通达",
+        "example": "公道<b>达</b>而私门塞矣。",
+        "source": "荀子"
+      },
+      {
+        "meaning": "通到，到达",
+        "example": "指通豫南，<b>达</b>于汉阴。",
+        "source": "愚公移山"
+      },
+      {
+        "meaning": "直到",
+        "example": "仰头相向鸣，夜夜<b>达</b>五更。",
+        "source": "孔雀东南飞并序"
+      },
+      {
+        "meaning": "直到",
+        "example": "自昏<b>达</b>曙，目不交睫。",
+        "source": "促织"
+      },
+      {
+        "meaning": "流通",
+        "example": "若火之始然，泉之始<b>达</b>。",
+        "source": "人皆有不忍人之心"
+      },
+      {
+        "meaning": "通晓，明白",
+        "example": "世事洞明皆学问，人情练<b>达</b>即文章。",
+        "source": "红楼梦"
+      },
+      {
+        "meaning": "显达，得志",
+        "example": "穷则独善其身，<b>达</b>则兼济天下。",
+        "source": "孟子"
+      },
+      {
+        "meaning": "畅通，通顺",
+        "example": "撰长书以为贽，辞甚畅<b>达</b>。\n〔费：见面礼〕",
+        "source": "送东阳马生序"
+      },
+      {
+        "meaning": "显达，显贵",
+        "example": "本图宦<b>达</b>，不矜名节。",
+        "source": "陈情表"
+      },
+      {
+        "meaning": "通达事理",
+        "example": "所赖君子见机，<b>达</b>人知命。",
+        "source": "滕王阁序"
+      }
+    ]
+  },
+  {
+    "word": "殆",
+    "pinyin": "dài",
+    "index": 64,
+    "senses": [
+      {
+        "meaning": "危险",
+        "example": "知彼知己，百战不<b>殆</b>。",
+        "source": "孙子"
+      },
+      {
+        "meaning": "危险",
+        "example": "吾非至于子之门，则<b>殆</b>矣。",
+        "source": "庄子·秋水"
+      },
+      {
+        "meaning": "疑惑",
+        "example": "思而不学则<b>殆</b>。",
+        "source": "论语"
+      },
+      {
+        "meaning": "同“怠”，懈怠，怠惰",
+        "example": "农者<b>殆</b>则土地荒。",
+        "source": "商君书"
+      },
+      {
+        "meaning": "疲乏，疲倦",
+        "example": "吾生也有涯，而知也无涯，以有涯随无涯，<b>殆</b>已。",
+        "source": "庄子"
+      },
+      {
+        "meaning": "近于，几乎",
+        "example": "凡永嘉山水，游历<b>殆</b>遍。",
+        "source": "雁荡山"
+      },
+      {
+        "meaning": "近于，几乎",
+        "example": "且燕、赵处秦革灭<b>殆</b>尽之际。〔革灭：消灭〕",
+        "source": "六国论"
+      },
+      {
+        "meaning": "大概，恐怕",
+        "example": "郦元之所闻，<b>殆</b>与余同。",
+        "source": "石钟山记"
+      },
+      {
+        "meaning": "大概，恐怕",
+        "example": "轩凡四遭火，得不焚，<b>殆</b>有神护者。",
+        "source": "项脊轩志"
+      }
+    ]
+  },
+  {
+    "word": "息",
+    "pinyin": "dài",
+    "index": 65,
+    "senses": [
+      {
+        "meaning": "懈怠，懒散",
+        "example": "忧懈怠则思慎始而敬终。",
+        "source": "谏太宗十思疏"
+      },
+      {
+        "meaning": "懈怠，懒散",
+        "example": "手指不可屈伸，弗之怠。",
+        "source": "送东阳马生序"
+      },
+      {
+        "meaning": "怠慢，轻慢",
+        "example": "今我受其直而怠其事者，天下皆然。",
+        "source": "送薛存义序"
+      },
+      {
+        "meaning": "疲倦，疲乏",
+        "example": "又何以番吾生而安吾性耶？故病且怠。",
+        "source": "种树郭橐驼传"
       }
     ]
   }
