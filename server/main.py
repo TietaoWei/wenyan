@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
 
 from models import init_db, create_user, get_user_by_username, init_progress
 from auth import hash_password, verify_password, create_token
@@ -14,6 +17,20 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# 静态文件目录
+STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+
+@app.get("/")
+def serve_index():
+    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
+
+
+@app.get("/words.json")
+def serve_words():
+    return FileResponse(os.path.join(STATIC_DIR, "words.json"))
 
 
 @app.on_event("startup")
