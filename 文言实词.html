@@ -466,6 +466,27 @@
       return localStorage.getItem('wenyan_token');
     }
 
+    function applyServerData(data) {
+      for (var k in data) {
+        if (data[k] !== null && data[k] !== undefined && k !== '_updated_at' && k !== 'seconds_delta') {
+          var v = data[k];
+          // 若值为对象，转为JSON字符串存储
+          if (typeof v === 'object') v = JSON.stringify(v);
+          localStorage.setItem(k, String(v));
+        }
+      }
+      // 同步秒数基准为服务器汇总值，保证下次增量正确
+      if (data['wenyan_daily_activity'] !== undefined) {
+        try {
+          var act = (typeof data['wenyan_daily_activity'] === 'object')
+            ? data['wenyan_daily_activity']
+            : JSON.parse(data['wenyan_daily_activity']);
+          localStorage.setItem('wenyan_synced_seconds', String(act.seconds || 0));
+          localStorage.setItem('wenyan_synced_date', todayStr());
+        } catch(e) {}
+      }
+    }
+
     function pullFromServer(cb) {
       var token = getToken();
       if (!token) return;
@@ -473,15 +494,7 @@
         headers: { 'Authorization': 'Bearer ' + token }
       }).then(function(r) { return r.json(); }).then(function(res) {
         if (res.ok && res.data) {
-          // 以服务端数据为准，覆盖本地localStorage
-          for (var k in res.data) {
-            if (res.data[k] !== null && res.data[k] !== undefined && k !== '_updated_at') {
-              var v = res.data[k];
-              // 若值为对象，转为JSON字符串存储
-              if (typeof v === 'object') v = JSON.stringify(v);
-              localStorage.setItem(k, String(v));
-            }
-          }
+          applyServerData(res.data);
           if (cb) cb();
         }
       }).catch(function() {});
@@ -496,10 +509,23 @@
         var v = localStorage.getItem(k);
         if (v !== null) data[k] = v;
       });
+      // 计算时长增量（相对上次同步基准），避免多设备重复累加
+      var today = todayStr();
+      var base = 0;
+      if (localStorage.getItem('wenyan_synced_date') === today) {
+        base = parseInt(localStorage.getItem('wenyan_synced_seconds') || '0');
+      }
+      var act = getTodayActivity();
+      var delta = Math.max(0, (act.seconds || 0) - base);
+      data['seconds_delta'] = String(delta);
       fetch(API_BASE + '/api/progress', {
         method: 'POST',
         headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
         body: JSON.stringify({ data: data })
+      }).then(function(r) { return r.json(); }).then(function(res) {
+        if (res.ok && res.data) {
+          applyServerData(res.data);
+        }
       }).catch(function() {});
     }
 
@@ -566,6 +592,7 @@
       var stats = JSON.parse(localStorage.getItem('wenyan_word_stats') || '{}');
       stats[word] = data;
       localStorage.setItem('wenyan_word_stats', JSON.stringify(stats));
+      syncToServer();
     }
 
     function markWordCompleted(word, mcCorrect, mcTotal) {
@@ -752,6 +779,7 @@
         if (act.date !== d) act = { date: d, learn: [], review: [], seconds: 0 };
         act.seconds = (act.seconds || 0) + 30;
         localStorage.setItem('wenyan_daily_activity', JSON.stringify(act));
+        syncToServer();
       }, 30000);
     }
 
