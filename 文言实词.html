@@ -1111,7 +1111,9 @@
         var input = document.getElementById('dictInput' + i);
         var answerEl = document.getElementById('dictAnswer' + i);
         var userAnswer = input.value.trim();
-        var normalize = function(t) { return t.replace(/[，。、,.\s]/g, ''); };
+        // 只保留汉字、字母(含拼音声调)、数字，忽略所有标点/符号/空白，
+        // 避免省略号…、间隔号·、引号等视觉相似字符导致误判
+        var normalize = function(t) { return t.replace(/[^\u4e00-\u9fff\u3400-\u4dbfa-zA-Z\u00C0-\u024F0-9]/g, ''); };
         var parts = s.meaning.split(/[，、]/).map(function(p) { return p.trim(); });
         var isCorrect = normalize(userAnswer) === normalize(s.meaning) ||
                         userAnswer === s.meaning ||
