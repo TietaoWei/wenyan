@@ -378,6 +378,7 @@
     var REVIEW_INTERVALS = [1, 2, 4, 7, 15, 30];
     var API_BASE = 'https://wenyan-server-s556.onrender.com';
     var syncTimer = null;
+    var currentTab = 'home';
 
     // ==================== 登录/同步 ====================
     function showLogin() {
@@ -469,6 +470,19 @@
     function applyServerData(data) {
       for (var k in data) {
         if (data[k] !== null && data[k] !== undefined && k !== '_updated_at' && k !== 'seconds_delta') {
+          // 词统计：仅当服务端数据更新时才覆盖本地，避免 sync/pull 竞态覆盖
+          if (k === 'wenyan_word_stats') {
+            try {
+              var local = JSON.parse(localStorage.getItem(k) || '{}');
+              var remote = typeof data[k] === 'object' ? data[k] : JSON.parse(data[k]);
+              var localMax = '';
+              Object.values(local).forEach(function(s) { if (s.lastReviewDate > localMax) localMax = s.lastReviewDate; });
+              var remoteMax = '';
+              Object.values(remote).forEach(function(s) { if (s.lastReviewDate > remoteMax) remoteMax = s.lastReviewDate; });
+              if (remoteMax >= localMax) localStorage.setItem(k, typeof data[k] === 'string' ? data[k] : JSON.stringify(data[k]));
+            } catch(e) { localStorage.setItem(k, typeof data[k] === 'string' ? data[k] : JSON.stringify(data[k])); }
+            continue;
+          }
           var v = data[k];
           // 若值为对象，转为JSON字符串存储
           if (typeof v === 'object') v = JSON.stringify(v);
@@ -715,6 +729,7 @@
 
     // ==================== Tab ====================
     function switchTab(tabName) {
+      currentTab = tabName;
       document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
       document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
       document.querySelector('[data-tab="' + tabName + '"]').classList.add('active');
@@ -1025,6 +1040,8 @@
         localStorage.setItem('wenyan_mc_review_group', mcGroupIdx + 1);
         recordDailyActivity(group.word, 'review');
       }
+      // 每次组完成后刷新首页统计（待复习数量、已学词数）
+      initHome();
     }
 
     function mcNextGroup() {
@@ -1177,6 +1194,13 @@
       initHome();
       document.getElementById('panelHome').classList.add('active');
     }
+
+    // 页面可见时刷新首页统计，解决切换 tab 回来数据不同步
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden && typeof currentTab !== 'undefined' && currentTab === 'home') {
+        initHome();
+      }
+    });
 
     loadWords();
   </script>
