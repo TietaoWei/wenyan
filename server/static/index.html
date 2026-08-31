@@ -1022,6 +1022,9 @@
       } else {
         document.getElementById('mcCompActions').classList.add('hidden');
         document.getElementById('mcCompActionsReview').classList.remove('hidden');
+        // 复习模式：依据本次选义正确率更新艾宾浩斯阶段，并将 nextReviewDate 推后，
+        // 否则主页“待复习”数量不会减少（与默写路径 mcDictSubmit 保持一致）
+        updateReviewAfterSession(group.word, mcGroupCorrect, group.questions.length, 0, 0);
         localStorage.setItem('wenyan_mc_review_group', mcGroupIdx + 1);
         recordDailyActivity(group.word, 'review');
       }
